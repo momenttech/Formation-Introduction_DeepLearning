@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Formation au Deep-Learning</title>
+	<link rel="stylesheet" href="../assets/css/reveal/reveal.css">
+	<link rel="stylesheet" href="../assets/css/reveal/theme/white.css">
+	<link rel="stylesheet" href="../assets/css/highlight-hybrid.css">
+	<link rel="stylesheet" href="../assets/css/slideshow.css">
+	<style>
+	</style>
+	<!--  -->
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-markdown
+			data-separator="(^#HSLIDE$|^#HSLIDE\?.*)"
+			data-separator-vertical="(^#VSLIDE$|^#VSLIDE\?.*)"
+			data-separator-notes="^Presentation note:"
+			data-charset="utf-8">
+			<script type="text/template">
+				# Formation au Deep-Learning
+
+---
+#HSLIDE
+
+## Sommaire
+
+- Réseau de neurones
+- Droites de régression
+- Listes de matrices
+- Calcul d’erreur
+
+#HSLIDE
+
+## Les matrices : quelques rappels !
+#VSLIDE
+
+### L'addition de matrice
+
+---
+#### Généralités :
+
+- L&#39;addition des matrices est définie pour deux matrices de même type.
+- La somme de deux matrices de type (m, n), est obtenue en additionnant les éléments correspondants.
+
+#VSLIDE
+
+### L'addition de matrice
+<p>&nbsp;</p>
+
+#### Exemple avec :
+<img src="formules/addition1.PNG" alt="addition1" width="" height="150" align="" />
+
+#VSLIDE
+
+### L'addition de matrice
+<p>&nbsp;</p>
+
+#### Étape 1 :
+<p>&nbsp;</p>
+
+<img src="formules/addition2.PNG" alt="addition2" width="" height="150" align="" />
+
+#VSLIDE
+
+### L'addition de matrice
+<p>&nbsp;</p>
+
+#### Étape 2 :
+<p>&nbsp;</p>
+
+<img src="formules/addition3.PNG" alt="addition3" width="" height="150" align="" />
+
+#VSLIDE
+
+### Le produit matriciel
+
+---
+#VSLIDE
+
+### Le produit matriciel
+#### Généralités :
+
+- La multiplication des matrices n&#39;est pas commutative, c&#39;est-à-dire que AB n&#39;est pas égal à BA.
+
+À l’avenir, nous aurons seulement besoin de connaitre le produit d’une matrice de type (1,2) et d’une matrice de type (2,2).
+
+#VSLIDE
+
+### Le produit matriciel
+#### Exemple avec :
+<img src="formules/multi1.PNG" alt="multi1" width="" height="150" align="" />
+
+#VSLIDE
+
+### Le produit matriciel
+<p>&nbsp;</p>
+
+#### Étape 1 :
+<p>&nbsp;</p>
+
+<img src="formules/multi2.PNG" alt="multi2" width="" height="150" align="" />
+
+#VSLIDE
+
+### L'addition de matrice
+<p>&nbsp;</p>
+
+#### Étape 2 :
+<p>&nbsp;</p>
+
+<img src="formules/multi3.PNG" alt="multi3" width="" height="300" align="" />
+
+#VSLIDE
+
+### L'addition de matrice
+<p>&nbsp;</p>
+
+#### Étape 2 :
+<p>&nbsp;</p>
+
+<img src="formules/multi4.PNG" alt="multi4" width="" height="300" align="" />
+
+#VSLIDE
+
+### L'addition de matrice
+<p>&nbsp;</p>
+
+#### Étape 2 :
+<p>&nbsp;</p>
+
+<img src="formules/multi5.PNG" alt="multi5" width="" height="300" align="" />
+
+#VSLIDE
+
+### Le produit matriciel
+<p>&nbsp;</p>
+
+#### Étape 3 :
+<p>&nbsp;</p>
+
+<img src="formules/multi6.PNG" alt="multi6" width="" height="300" align="" />
+
+#VSLIDE
+
+### Le produit de matrice
+<p>&nbsp;</p>
+
+#### Étape 4 :
+<p>&nbsp;</p>
+
+<img src="formules/multi7.PNG" alt="multi7" width="" height="300" align="" />
+
+#VSLIDE
+
+### Le produit de matrice
+<p>&nbsp;</p>
+
+#### Étape 5 :
+<p>&nbsp;</p>
+
+<img src="formules/multi8.PNG" alt="multi8" width="" height="150" align="" />
+
+#VSLIDE
+
+### Le produit de matrice
+<p>&nbsp;</p>
+
+#### Étape 6 :
+<p>&nbsp;</p>
+
+<img src="formules/multi9.PNG" alt="multi9" width="" height="150" align="" />
+
+
+			</script>
+		</section>
+	</div>
+</div>
+
+<script src="../assets/js/reveal/reveal.js"></script>
+<script src="../assets/js/reveal/lib/head.min.js"></script>
+<script src="../assets/js/jquery.js"></script>
+<script>
+Reveal.initialize({
+	embedded: true,
+	margin: 0.0,
+	showNotes: false,
+	transition: 'slide',
+	autoSlide: 0,
+	loop: false,
+	center: true,
+	rtl: false,
+	shuffle: false,
+	mouseWheel: false,
+	history: true,
+
+	// disabled for now
+	// math: {
+	// 	mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+	// 	config: 'TeX-AMS_HTML-full'
+	// },
+
+	dependencies: [
+		{ src: "../assets/js/reveal/plugin/markdown/marked.js"},
+		{ src: "../assets/js/reveal/plugin/markdown/markdown.js"},
+		{ src: "../assets/js/reveal/plugin/notes/notes.js"},
+		// { src: "../assets/js/reveal/plugin/math/math.js", async: true }
+		{ src: "../assets/js/reveal/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+	]
+});
+
+Reveal.configure({
+	keyboard: {
+		67: function() { // bind "s" key to "select" code block content
+
+		var currentSlide = Reveal.getCurrentSlide();
+		var preBlock = $(currentSlide).find("pre");
+
+		if(preBlock.length > 0) {
+
+			if (window.getSelection) {
+				var range = document.createRange();
+				range.selectNodeContents(preBlock[0]);
+				var selection = window.getSelection();
+				selection.removeAllRanges();
+				selection.addRange(range);
+			}
+		}
+	}
+}
+});
+
+</script>
+
+</body>
+</html>

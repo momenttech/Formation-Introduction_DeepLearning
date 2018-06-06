@@ -1,0 +1,180 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Calcul d&#x27;erreur - Web site</title>
+		<link rel="stylesheet" href="../assets/css/highlight.min.css">
+		<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../assets/css/tipuesearch.css">
+		<link rel="stylesheet" href="../assets/css/main.css">
+	</head>
+	<body>
+		<header class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="../">Web site</a> <p class="navbar-text hidden-xs">Calcul d'erreur</p>
+				</div>
+
+				<div class="collapse navbar-collapse" id="navbar-collapse-1">
+					<form action="../search.html" class="navbar-form navbar-right" role="search">
+						<div class="form-group">
+							<input type="text" name="q" id="tipue_search_input" autocomplete="off" required class="form-control" placeholder="Search">
+						</div>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="../Trash/CalculErreur-slideshow.html" target="_blank">View as slideshow</a></li>
+						<!--li><a href="../Trash/CalculErreur-raw.html">View Markdown</a></li-->
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<!--
+<div class="toc">
+<p class="lead">Table of contents:</p>
+<p class="toc-2">
+<a href="#calcul-d-39-erreur">Calcul d&amp;#39;erreur</a>
+</p>
+<p class="toc-3">
+<a href="#notion-d-39-erreur">Notion d&amp;#39;erreur</a>
+</p>
+<p class="toc-3">
+<a href="#notion-d-39-erreur">Notion d&amp;#39;erreur</a>
+</p>
+<p class="toc-3">
+<a href="#le-batch">Le batch</a>
+</p>
+<p class="toc-3">
+<a href="#le-batch">Le batch</a>
+</p>
+<p class="toc-3">
+<a href="#le-minimum-local">Le minimum local</a>
+</p>
+<p class="toc-3">
+<a href="#le-minimum-local">Le minimum local</a>
+</p>
+<p class="toc-3">
+<a href="#le-learning-rate-">Le *learning rate*</a>
+</p>
+<p class="toc-3">
+<a href="#le-learning-rate-">Le *learning rate*</a>
+</p>
+<p class="toc-3">
+<a href="#le-vanishing-gradients-">Le *vanishing gradients*</a>
+</p>
+<p class="toc-3">
+<a href="#le-vanishing-gradients-">Le *vanishing gradients*</a>
+</p>
+<p class="toc-3">
+<a href="#l-39-overfitting-">L&amp;#39;*overfitting*</a>
+</p>
+<p class="toc-3">
+<a href="#l-39-overfitting-">L&amp;#39;*overfitting*</a>
+</p>
+</div>
+-->
+
+		<div class="container">
+			<div class="row">
+				<nav id="sidebar" class="col-lg-2 col-sm-3">
+					<ul class="nav nav-pills nav-stacked">
+					</ul>
+					<!--
+Available versions:<br>
+raw<br>
+->Trash/CalculErreur-raw.html<br>
+slideshow<br>
+->Trash/CalculErreur-slideshow.html<br>
+default<br>
+->Trash/CalculErreur.html<br>
+<br>
+Document informations:<br>
+Trash/CalculErreur.md<br><br>
+active
+-->
+				</nav>
+				<header>
+					<div class="entry-meta text-right">
+
+					</div>
+				</header>
+				<article id="content" class="col-lg-10 col-sm-9">
+					<h2 id="calcul-d-erreur">Calcul d&#39;erreur</h2>
+<h3 id="notion-d-erreur">Notion d&#39;erreur</h3>
+<hr>
+<h3 id="notion-d-erreur">Notion d&#39;erreur</h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>A chaque itération, l&#39;algorithme va calculer un indicateur de performance globale (l&#39;erreur qu&#39;il commet) en comparant la sortie attendue et la sortie prédite.</li>
+</ul>
+<p><img src="pictures/un-plus-un.jpg" width="" height="350" align="" ></p>
+<h3 id="le-batch">Le batch</h3>
+<hr>
+<h3 id="le-batch">Le batch</h3>
+<h4 id="d-finition-">Définition :</h4>
+<h3 id="le-minimum-local">Le minimum local</h3>
+<hr>
+<h3 id="le-minimum-local">Le minimum local</h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>Le minimum local est point dans une zone où le système établit qu’il ne peut semble pense avoir obtenu la meilleure précision mais ne l’est effectivement pas sur la courbe de précision de classification.</li>
+</ul>
+<p><img src="pictures/minim-local.jpg" width="" height="350" align="" ></p>
+<h3 id="le-learning-rate">Le <em>learning rate</em></h3>
+<hr>
+<h3 id="le-learning-rate">Le <em>learning rate</em></h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>Représente la taille du « pas » en avant effectuer par le système pour atteindre le point d’apprentissage le plus efficient</li>
+</ul>
+<p><img src="pictures/LR1.png" width="" height="280" align="left" >
+<img src="pictures/LR2.png" width="" height="280" align="right" ></p>
+<h3 id="le-vanishing-gradients">Le <em>vanishing gradients</em></h3>
+<hr>
+<p><img src="pictures/vanish.png" width="" height="130" align="" ></p>
+<h3 id="le-vanishing-gradients">Le <em>vanishing gradients</em></h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>Le vanishing gradients est une perte (ou fuite) de gradient, affectant les neurones plus profond et unités de saturations dans un réseau profond.</li>
+</ul>
+<p><img src="pictures/long-network.png" alt="TPU"></p>
+<h3 id="l-overfitting">L&#39;<em>overfitting</em></h3>
+<hr>
+<h3 id="l-overfitting">L&#39;<em>overfitting</em></h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>L’overfitting (ou surapprentissage) est une étape où le système est arrivé à reconnaitre quasi-seulement les images sur lesquelles il a été entrainé et une variation de lumière ou de milieu peut l’induire à ne pas reconnaitre l’objet.</li>
+</ul>
+<p><img src="pictures/overfitting.jpg" alt="TPU"></p>
+
+				</article>
+			</div>
+		</div>
+
+		<footer><a href="../site-index.html">Pages index</a>
+</footer>
+
+		<script src="../assets/js/jquery.js"></script>
+		<script src="../assets/js/bootstrap.min.js"></script>
+		<script src="../assets/js/highlight.min.js"></script>
+		<script src="../assets/js/tipuesearch_set.js"></script>
+		<script src="../assets/js/tipuesearch.min.js"></script>
+		<script>
+			$(function() {
+				hljs.initHighlightingOnLoad();
+				$('#tipue_search_input').tipuesearch({
+					mode: 'json',
+					contentLocation: '../index.json'
+				});
+			});
+		</script>
+		
+		<!-- Generated by Vegetables from 'Trash/CalculErreur.md' with format 'default' - '2018-5-31 15:17:42' -->
+	</body>
+</html>
