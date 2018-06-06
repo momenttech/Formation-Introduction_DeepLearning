@@ -1,0 +1,758 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Formation au Deep-Learning - Web site</title>
+		<link rel="stylesheet" href="assets/css/highlight.min.css">
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/tipuesearch.css">
+		<link rel="stylesheet" href="assets/css/main.css">
+	</head>
+	<body>
+		<header class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="">Web site</a> <p class="navbar-text hidden-xs">Formation au Deep-Learning</p>
+				</div>
+
+				<div class="collapse navbar-collapse" id="navbar-collapse-1">
+					<form action="search.html" class="navbar-form navbar-right" role="search">
+						<div class="form-group">
+							<input type="text" name="q" id="tipue_search_input" autocomplete="off" required class="form-control" placeholder="Search">
+						</div>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="index-slideshow.html" target="_blank">View as slideshow</a></li>
+						<!--li><a href="index-raw.html">View Markdown</a></li-->
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<!--
+<div class="toc">
+<p class="lead">Table of contents:</p>
+<p class="toc-1">
+<a href="#formation-au-deep-learning">Formation au Deep-Learning</a>
+</p>
+<p class="toc-2">
+<a href="#sommaire">Sommaire</a>
+</p>
+<p class="toc-2">
+<a href="#les-r-seau-de-neurones">Les Réseau de Neurones</a>
+</p>
+<p class="toc-3">
+<a href="#le-r-seau-fully-connected-">Le réseau *fully connected*</a>
+</p>
+<p class="toc-3">
+<a href="#le-r-seau-fully-connected-">Le réseau *fully connected*</a>
+</p>
+<p class="toc-3">
+<a href="#le-r-seau-fully-connected-">Le réseau *fully connected*</a>
+</p>
+<p class="toc-3">
+<a href="#le-r-seau-fully-connected-">Le réseau *fully connected*</a>
+</p>
+<p class="toc-3">
+<a href="#le-r-seau-fully-connected-">Le réseau *fully connected*</a>
+</p>
+<p class="toc-3">
+<a href="#le-r-seau-fully-connected-">Le réseau *fully connected*</a>
+</p>
+<p class="toc-2">
+<a href="#les-matrices-quelques-rappels-">Les matrices : quelques rappels !</a>
+</p>
+<p class="toc-3">
+<a href="#l-39-addition-de-matrice">L&amp;#39;addition de matrice</a>
+</p>
+<p class="toc-3">
+<a href="#l-39-addition-de-matrice">L&amp;#39;addition de matrice</a>
+</p>
+<p class="toc-3">
+<a href="#l-39-addition-de-matrice">L&amp;#39;addition de matrice</a>
+</p>
+<p class="toc-3">
+<a href="#l-39-addition-de-matrice">L&amp;#39;addition de matrice</a>
+</p>
+<p class="toc-3">
+<a href="#l-39-addition-de-matrice">L&amp;#39;addition de matrice</a>
+</p>
+<p class="toc-3">
+<a href="#le-produit-matriciel">Le produit matriciel</a>
+</p>
+<p class="toc-3">
+<a href="#le-produit-matriciel">Le produit matriciel</a>
+</p>
+<p class="toc-3">
+<a href="#le-produit-matriciel">Le produit matriciel</a>
+</p>
+<p class="toc-3">
+<a href="#le-produit-matriciel">Le produit matriciel</a>
+</p>
+<p class="toc-3">
+<a href="#le-produit-matriciel">Le produit matriciel</a>
+</p>
+<p class="toc-3">
+<a href="#le-produit-matriciel">Le produit matriciel</a>
+</p>
+<p class="toc-3">
+<a href="#le-produit-matriciel">Le produit matriciel</a>
+</p>
+<p class="toc-3">
+<a href="#le-produit-matriciel">Le produit matriciel</a>
+</p>
+<p class="toc-3">
+<a href="#le-produit-matriciel">Le produit matriciel</a>
+</p>
+<p class="toc-3">
+<a href="#le-produit-matriciel">Le produit matriciel</a>
+</p>
+<p class="toc-3">
+<a href="#le-produit-matriciel">Le produit matriciel</a>
+</p>
+<p class="toc-2">
+<a href="#droites-de-r-gression">Droites de régression</a>
+</p>
+<p class="toc-3">
+<a href="#r-gression-lin-aire">Régression linéaire</a>
+</p>
+<p class="toc-3">
+<a href="#r-gression-lin-aire">Régression linéaire</a>
+</p>
+<p class="toc-3">
+<a href="#r-gression-lin-aire">Régression linéaire</a>
+</p>
+<p class="toc-3">
+<a href="#r-gression-lin-aire">Régression linéaire</a>
+</p>
+<p class="toc-3">
+<a href="#la-fonction-d-39-activation">La fonction d&amp;#39;activation</a>
+</p>
+<p class="toc-3">
+<a href="#la-fonction-d-39-activation">La fonction d&amp;#39;activation</a>
+</p>
+<p class="toc-3">
+<a href="#la-fonction-d-39-activation">La fonction d&amp;#39;activation</a>
+</p>
+<p class="toc-3">
+<a href="#la-fonction-d-39-activation">La fonction d&amp;#39;activation</a>
+</p>
+<p class="toc-2">
+<a href="#listes-de-matrices">Listes de matrices</a>
+</p>
+<p class="toc-3">
+<a href="#une-matrice">Une matrice</a>
+</p>
+<p class="toc-3">
+<a href="#une-matrice">Une matrice</a>
+</p>
+<p class="toc-3">
+<a href="#une-matrice">Une matrice</a>
+</p>
+<p class="toc-3">
+<a href="#une-matrice">Une matrice</a>
+</p>
+<p class="toc-2">
+<a href="#calculs-par-cpu-gpu-tpu">Calculs par CPU / GPU / TPU</a>
+</p>
+<p class="toc-3">
+<a href="#cpu-versus-gpu">CPU versus GPU</a>
+</p>
+<p class="toc-3">
+<a href="#cpu-versus-gpu">CPU versus GPU</a>
+</p>
+<p class="toc-3">
+<a href="#cpu-versus-gpu">CPU versus GPU</a>
+</p>
+<p class="toc-3">
+<a href="#cpu-versus-gpu">CPU versus GPU</a>
+</p>
+<p class="toc-3">
+<a href="#tpu-k-sako-">TPU ? Késako ?</a>
+</p>
+<p class="toc-3">
+<a href="#tpu-k-sako-">TPU ? Késako ?</a>
+</p>
+<p class="toc-2">
+<a href="#calcul-d-39-erreur">Calcul d&amp;#39;erreur</a>
+</p>
+<p class="toc-3">
+<a href="#notion-d-39-erreur">Notion d&amp;#39;erreur</a>
+</p>
+<p class="toc-3">
+<a href="#notion-d-39-erreur">Notion d&amp;#39;erreur</a>
+</p>
+<p class="toc-3">
+<a href="#le-batch-">Le *batch*</a>
+</p>
+<p class="toc-3">
+<a href="#le-batch-">Le *batch*</a>
+</p>
+<p class="toc-3">
+<a href="#le-gradient-descent-">Le *gradient descent*</a>
+</p>
+<p class="toc-3">
+<a href="#le-gradient-descent-">Le *gradient descent*</a>
+</p>
+<p class="toc-3">
+<a href="#le-learning-rate-">Le *learning rate*</a>
+</p>
+<p class="toc-3">
+<a href="#le-learning-rate-">Le *learning rate*</a>
+</p>
+<p class="toc-3">
+<a href="#le-minimum-local">Le minimum local</a>
+</p>
+<p class="toc-3">
+<a href="#le-minimum-local">Le minimum local</a>
+</p>
+<p class="toc-3">
+<a href="#notion-de-d-riv-e-de-sigmo-de">Notion de dérivée de sigmoïde</a>
+</p>
+<p class="toc-3">
+<a href="#notion-de-d-riv-e-de-sigmo-de">Notion de dérivée de sigmoïde</a>
+</p>
+<p class="toc-3">
+<a href="#notion-de-d-riv-e-de-sigmo-de">Notion de dérivée de sigmoïde</a>
+</p>
+<p class="toc-3">
+<a href="#le-vanishing-gradients-">Le *vanishing gradients*</a>
+</p>
+<p class="toc-3">
+<a href="#le-vanishing-gradients-">Le *vanishing gradients*</a>
+</p>
+<p class="toc-3">
+<a href="#l-39-overfitting-">L&amp;#39;*overfitting*</a>
+</p>
+<p class="toc-3">
+<a href="#l-39-overfitting-">L&amp;#39;*overfitting*</a>
+</p>
+<p class="toc-3">
+<a href="#le-cross-validation-">Le *cross-validation*</a>
+</p>
+<p class="toc-2">
+<a href="#r-seau-neuronal-convolution">Réseau neuronal à convolution</a>
+</p>
+<p class="toc-3">
+<a href="#les-convolutions">Les convolutions</a>
+</p>
+<p class="toc-3">
+<a href="#les-convolutions">Les convolutions</a>
+</p>
+<p class="toc-3">
+<a href="#les-convolutions">Les convolutions</a>
+</p>
+<p class="toc-3">
+<a href="#les-blocs-de-construction">Les blocs de construction</a>
+</p>
+<p class="toc-3">
+<a href="#les-blocs-de-construction">Les blocs de construction</a>
+</p>
+<p class="toc-3">
+<a href="#la-couche-de-pooling-">La couche de *pooling*</a>
+</p>
+<p class="toc-3">
+<a href="#la-couche-de-pooling-">La couche de *pooling*</a>
+</p>
+<p class="toc-3">
+<a href="#la-couche-de-pooling-">La couche de *pooling*</a>
+</p>
+<p class="toc-3">
+<a href="#le-max-pooling-">Le *max-pooling*</a>
+</p>
+<p class="toc-3">
+<a href="#le-max-pooling-">Le *max-pooling*</a>
+</p>
+<p class="toc-3">
+<a href="#le-max-pooling-">Le *max-pooling*</a>
+</p>
+<p class="toc-2">
+<a href="#contact">Contact</a>
+</p>
+<p class="toc-3">
+<a href="#ressources">Ressources</a>
+</p>
+</div>
+-->
+
+		<div class="container">
+			<div class="row">
+				<nav id="sidebar" class="col-lg-2 col-sm-3">
+					<ul class="nav nav-pills nav-stacked">
+					</ul>
+					<!--
+Available versions:<br>
+raw<br>
+->index-raw.html<br>
+slideshow<br>
+->index-slideshow.html<br>
+default<br>
+->index.html<br>
+<br>
+Document informations:<br>
+README.md<br><br>
+active
+-->
+				</nav>
+				<header>
+					<div class="entry-meta text-right">
+
+					</div>
+				</header>
+				<article id="content" class="col-lg-10 col-sm-9">
+					<h1 id="formation-au-deep-learning">Formation au Deep-Learning</h1>
+<hr>
+<h2 id="sommaire">Sommaire</h2>
+<ul>
+<li>Les réseau de neurones</li>
+<li>Les matrices : quelques rappels</li>
+<li>Droites de régression</li>
+<li>Listes de matrices</li>
+<li>Calcul par CPU / GPU / TPU</li>
+<li>Calcul d’erreur</li>
+</ul>
+<p><strong><!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre RESEAU DE NEURONES
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- --></strong></p>
+<h2 id="les-r-seau-de-neurones">Les Réseau de Neurones</h2>
+<p><img src="chapterHeader/architecture-N2.png" width="" height="550" align="" ></p>
+<h3 id="le-r-seau-fully-connected">Le réseau <em>fully connected</em></h3>
+<hr>
+<h3 id="le-r-seau-fully-connected">Le réseau <em>fully connected</em></h3>
+<ul>
+<li>Un réseau de neurones est considéré « <em>fully connected</em> » lorsque toute entrée est relié par une arête appelé « poids » et représenté par « <em>w<sub><font size=3>i,j</font></sub></em> » à l’intégralité des neurones présents dans les couches cachées.</li>
+</ul>
+<p><img src="pictures/deep-learning-weight-paths.gif" width="" height="350" align="" ></p>
+<h3 id="le-r-seau-fully-connected">Le réseau <em>fully connected</em></h3>
+<h4 id="l-quation-du-neurone-">L&#39;équation du neurone :</h4>
+<p>Sortie du Neurone = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,1</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,1</font></sub> + B<sub><font size=3>1</font></sub> = <strong>Régression lineaire</strong></p>
+<p><img src="neurones/neuro1.PNG" width="" height="300" align="middle" > 
+<img src="neurones/linearite.png" width="" height="300" align="middle" ></p>
+<h3 id="le-r-seau-fully-connected">Le réseau <em>fully connected</em></h3>
+<h4 id="avec-plusieurs-neurones-">Avec plusieurs neurones :</h4>
+<p><img src="neurones/neuro2.PNG" width="" height="300" align="" ></p>
+<p>Pour calculer la valeur d’un neurone, il faut effectuer la somme des connexions entrantes :
+Neurone 1 = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,1</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,1</font></sub> + B<sub><font size=3>1</font></sub><br><span style="color: #fb4141">Neurone 2 = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,2</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,2</font></sub> + B<sub><font size=3>2</font></sub></span></p>
+<h3 id="le-r-seau-fully-connected">Le réseau <em>fully connected</em></h3>
+<h4 id="vue-matricielle-">Vue matricielle :</h4>
+<p><img src="neurones/neuro3.PNG" width="" height="300" align="" >
+<img src="neurones/Diapositive5.PNG" width="" height="150" align="" ></p>
+<h3 id="le-r-seau-fully-connected">Le réseau <em>fully connected</em></h3>
+<h4 id="la-fonction-d-activation-">La Fonction d’Activation :</h4>
+<h6 id="-font-size-3-ou-fonction-de-seuillage-ou-encore-fonction-de-transfert-font-"><font size=3>(ou fonction de seuillage, ou encore fonction de transfert)</font></h6>
+<ul>
+<li>Présente à la sortie du neurone.</li>
+<li>Elle répond à trois exigences:<ul>
+<li>Non linéaire   -&gt; Pour modéliser des fonctions complexes (non linéaires)</li>
+<li>Différentielle -&gt; Pour permetre la retro-propagation de l&#39;erreur</li>
+<li>Monotonique    -&gt; Pour éviter de rajouter des minimums locaux</li>
+</ul>
+</li>
+</ul>
+<p><img src="pictures/spiral.png" width="" height="300" align="" ></p>
+<p><strong><!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre LES MATRICES : RAPPELS
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- --></strong></p>
+<h2 id="les-matrices-quelques-rappels-">Les matrices : quelques rappels !</h2>
+<p><img src="chapterHeader/calculMatrice.png" width="" height="350" align="" ></p>
+<h3 id="l-addition-de-matrice">L&#39;addition de matrice</h3>
+<hr>
+<h3 id="l-addition-de-matrice">L&#39;addition de matrice</h3>
+<p>&nbsp;</p>
+
+<ul>
+<li><p>Généralités :</p>
+<ul>
+<li>L&#39;addition des matrices est définie pour deux matrices de même type.  </li>
+</ul>
+</li>
+<li><p>La somme de deux matrices de type (m, n), est obtenue en additionnant les éléments correspondants.</p>
+</li>
+</ul>
+<h3 id="l-addition-de-matrice">L&#39;addition de matrice</h3>
+<p>&nbsp;</p>
+
+<h4 id="exemple-avec-">Exemple avec :</h4>
+<p><img src="formules/addition1.PNG" alt="addition1" width="" height="150" align="" /></p>
+<h3 id="l-addition-de-matrice">L&#39;addition de matrice</h3>
+<p>&nbsp;</p>
+
+<h4 id="-tape-1-">Étape 1 :</h4>
+<p>&nbsp;</p>
+
+<p><img src="formules/addition2.PNG" alt="addition2" width="" height="150" align="" /></p>
+<h3 id="l-addition-de-matrice">L&#39;addition de matrice</h3>
+<p>&nbsp;</p>
+
+<h4 id="-tape-2-">Étape 2 :</h4>
+<p>&nbsp;</p>
+
+<p><img src="formules/addition3.PNG" alt="addition3" width="" height="150" align="" /></p>
+<h3 id="le-produit-matriciel">Le produit matriciel</h3>
+<hr>
+<h3 id="le-produit-matriciel">Le produit matriciel</h3>
+<h4 id="g-n-ralit-s-">Généralités :</h4>
+<ul>
+<li>La multiplication des matrices n&#39;est pas <u>commutative</u>, <strong>c&#39;est-à-dire que A&bull;B n&#39;est pas égal à B&bull;A</strong>.</li>
+</ul>
+<p>À l’avenir, nous aurons seulement besoin de connaître le produit d’une matrice de type (1,<u>2</u>) et d’une matrice de type (<u>2</u>,2).</p>
+<p>&nbsp;</p>
+
+<p><span style="color: #fb4141"><strong>[!]</strong> Produit matriciel &ne; multiplication de matrice</span></p>
+<h3 id="le-produit-matriciel">Le produit matriciel</h3>
+<h4 id="exemple-avec-">Exemple avec :</h4>
+<p><img src="formules/multi1.PNG" alt="multi1" width="" height="150" align="" /></p>
+<h3 id="le-produit-matriciel">Le produit matriciel</h3>
+<p>&nbsp;</p>
+
+<h4 id="-tape-1-">Étape 1 :</h4>
+<p>&nbsp;</p>
+
+<p><img src="formules/multi2.PNG" alt="multi2" width="" height="150" align="" /></p>
+<h3 id="le-produit-matriciel">Le produit matriciel</h3>
+<p>&nbsp;</p>
+
+<h4 id="-tape-2-">Étape 2 :</h4>
+<p>&nbsp;</p>
+
+<p><img src="formules/multi3.PNG" alt="multi3" width="" height="300" align="" /></p>
+<h3 id="le-produit-matriciel">Le produit matriciel</h3>
+<p>&nbsp;</p>
+
+<h4 id="-tape-2-">Étape 2 :</h4>
+<p>&nbsp;</p>
+
+<p><img src="formules/multi4.PNG" alt="multi4" width="" height="300" align="" /></p>
+<h3 id="le-produit-matriciel">Le produit matriciel</h3>
+<p>&nbsp;</p>
+
+<h4 id="-tape-2-">Étape 2 :</h4>
+<p>&nbsp;</p>
+
+<p><img src="formules/multi5.PNG" alt="multi5" width="" height="300" align="" /></p>
+<h3 id="le-produit-matriciel">Le produit matriciel</h3>
+<p>&nbsp;</p>
+
+<h4 id="-tape-3-">Étape 3 :</h4>
+<p>&nbsp;</p>
+
+<p><img src="formules/multi6.PNG" alt="multi6" width="" height="300" align="" /></p>
+<h3 id="le-produit-matriciel">Le produit matriciel</h3>
+<p>&nbsp;</p>
+
+<h4 id="-tape-4-">Étape 4 :</h4>
+<p>&nbsp;</p>
+
+<p><img src="formules/multi7.PNG" alt="multi7" width="" height="300" align="" /></p>
+<h3 id="le-produit-matriciel">Le produit matriciel</h3>
+<p>&nbsp;</p>
+
+<h4 id="-tape-5-">Étape 5 :</h4>
+<p>&nbsp;</p>
+
+<p><img src="formules/multi8.PNG" alt="multi8" width="" height="150" align="" /></p>
+<h3 id="le-produit-matriciel">Le produit matriciel</h3>
+<p>&nbsp;</p>
+
+<h4 id="-tape-6-">Étape 6 :</h4>
+<p>&nbsp;</p>
+
+<p><img src="formules/multi9.PNG" alt="multi9" width="" height="150" align="" /></p>
+<p><strong><!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre DROITES DE REGRESSION
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- --></strong></p>
+<h2 id="droites-de-r-gression">Droites de régression</h2>
+<p><img src="chapterHeader/regression.gif" width="" height="350" align="" ></p>
+<h3 id="r-gression-lin-aire">Régression linéaire</h3>
+<hr>
+<h3 id="r-gression-lin-aire">Régression linéaire</h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li><p>Désigne un modèle dans lesquels est la médiane conditionnelle de <strong>« y »</strong> sachant <strong>« x »</strong>.</p>
+</li>
+<li><p>Le modèle de régression linéaire est souvent estimé par la méthode des moindres carrés mais il existe aussi de nombreuses autres méthodes pour estimer ce modèle.</p>
+</li>
+</ul>
+<h3 id="r-gression-lin-aire">Régression linéaire</h3>
+<h4 id="repr-sentation-graphique-du-r-seau-pr-c-dent-">Représentation graphique du réseau précèdent :</h4>
+<p><img src=" neurones/linearite.png" width="" height="200" align="" ><br>Voici une droite de régression linéaire. Par définition elle suit l&#39;équation suivante :<br><em><b>ax + b</b></em><br>Afin de mieux comprendre et de l&#39;appliquer à notre réseau de neurone, nous pouvons l&#39;écrire de la façon suivante :<br><em><b>xw + B</b></em>  </p>
+<font size=3><em>x : la valeur d&#39;entrée</em><br><em>w : le poids</em><br><em>B : le biais</em></font>
+
+<h3 id="r-gression-lin-aire">Régression linéaire</h3>
+<h4 id="repr-sentation-graphique-du-r-seau-pr-c-dent-">Représentation graphique du réseau précèdent :</h4>
+<p><img src="pictures/playgrnd-reseau-simple.png" alt="Playground 2 neurones"></p>
+<p>Ce schéma représente ainsi la fonction d’activation</p>
+<h3 id="la-fonction-d-activation">La fonction d&#39;activation</h3>
+<hr>
+<h3 id="la-fonction-d-activation">La fonction d&#39;activation</h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>La fonction d’activation est une fonction mathématique appliquée à un signal en sortie d&#39;un neurone artificiel. Soit dans notre cas à la droite de régression linéaire.</li>
+</ul>
+<h3 id="la-fonction-d-activation">La fonction d&#39;activation</h3>
+<h4 id="graphiquement-">Graphiquement :</h4>
+<p><img src="pictures/courbes.PNG" width="" height="400" align="" ></p>
+<h3 id="la-fonction-d-activation">La fonction d&#39;activation</h3>
+<h4 id="cas-pratique-">Cas pratique :</h4>
+<ul>
+<li><a href="http://playground.tensorflow.org">http://playground.tensorflow.org</a></li>
+</ul>
+<p><img src="pictures/exemple_relu.png" width="" height="350" align="" ></p>
+<p><strong><!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre LISTES DE MATRICES
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- --></strong></p>
+<h2 id="listes-de-matrices">Listes de matrices</h2>
+<p><img src="chapterHeader/matrice4d.png" width="" height="350" align="" ></p>
+<h3 id="une-matrice">Une matrice</h3>
+<hr>
+<h3 id="une-matrice">Une matrice</h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>Une matrice est une liste de listes, une liste est une liste de vecteurs, un vecteur est une liste de chiffres.</li>
+</ul>
+<p><img src="pictures/matrix.jpg" width="" height="350" align="" ></p>
+<h3 id="une-matrice">Une matrice</h3>
+<h4 id="prenons-pour-exemple-cette-image-">Prenons pour exemple, cette image :</h4>
+<p><img src="pictures/dog.jpg" width="" height="350" align="" ></p>
+<h3 id="une-matrice">Une matrice</h3>
+<h4 id="prenons-pour-exemple-cette-image-">Prenons pour exemple, cette image :</h4>
+<TABLE BORDER=1>
+  <TR>
+    <TD><img src="pictures/dog.jpg" width="" height="150" align="" ></TD>
+    <TD style="vertical-align: top;"><u>Détails image :</u><br>     <strong>- Dimensions :</strong><br>       1280 x 768<br>     <strong>- Caractéristiques :</strong><br>       En couleurs (3 dimensions)</TD>
+    <TD><img src="neurones/matrice.PNG" width="" height="150" align="" ></TD>
+  </TR>
+</TABLE>
+
+<p><strong><!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre CALCUL CPU/GPU/TPU
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- --></strong></p>
+<h2 id="calculs-par-cpu-gpu-tpu">Calculs par CPU / GPU / TPU</h2>
+<p><img src="chapterHeader/CPU-GPU-TPU.jpg" width="" height="250" align="" ></p>
+<h3 id="cpu-versus-gpu">CPU versus GPU</h3>
+<hr>
+<h3 id="cpu-versus-gpu">CPU versus GPU</h3>
+<h4 id="le-facteur-nombre-de-c-urs-">Le facteur nombre de cœurs :</h4>
+<p><img src="pictures/cpu-vs-gpu.jpg" alt="Comparaison CPU - GPU"></p>
+<h3 id="cpu-versus-gpu">CPU versus GPU</h3>
+<ul>
+<li>Avantages :<ul>
+<li>Accélération via GPU des applications</li>
+</ul>
+</li>
+</ul>
+<p><img src="pictures/accelleration-gpu.png" alt="Schema CPU - GPU"></p>
+<h3 id="cpu-versus-gpu">CPU versus GPU</h3>
+<h4 id="d-monstration-">Démonstration :</h4>
+<p><img src="pictures/cpu.gif" width="" height="280" align="left" >
+<img src="pictures/gpu.gif" width="" height="280" align="right" ></p>
+<p><a href="https://www.youtube.com/watch?v=-P28LKWTzrI">https://www.youtube.com/watch?v=-P28LKWTzrI</a></p>
+<h3 id="tpu-k-sako-">TPU ? Késako ?</h3>
+<hr>
+<h3 id="tpu-k-sako-">TPU ? Késako ?</h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>Le TPU (Tensor Processor Unit) est un module hardware dédié spécifiquement aux applications de Machine Learning</li>
+</ul>
+<p><img src="pictures/tpu.png" width="" height="350" align="" ></p>
+<p><strong><!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre CALCUL D'ERREUR
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- --></strong></p>
+<h2 id="calcul-d-erreur">Calcul d&#39;erreur</h2>
+<p><img src="chapterHeader/errorLearning.jpg" width="" height="350" align="" ></p>
+<h3 id="notion-d-erreur">Notion d&#39;erreur</h3>
+<hr>
+<h3 id="notion-d-erreur">Notion d&#39;erreur</h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>A chaque itération, l&#39;algorithme va calculer un indicateur de performance globale (l&#39;erreur qu&#39;il commet) en comparant la sortie attendue et la sortie prédite.</li>
+</ul>
+<p><img src="pictures/un-plus-un.jpg" width="" height="350" align="" ></p>
+<h3 id="le-batch">Le <em>batch</em></h3>
+<hr>
+<h3 id="le-batch">Le <em>batch</em></h3>
+<h4 id="d-finition-">Définition :</h4>
+<h3 id="le-gradient-descent">Le <em>gradient descent</em></h3>
+<hr>
+<h3 id="le-gradient-descent">Le <em>gradient descent</em></h3>
+<h4 id="d-finition-">Définition :</h4>
+<h3 id="le-learning-rate">Le <em>learning rate</em></h3>
+<hr>
+<h3 id="le-learning-rate">Le <em>learning rate</em></h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>Représente la taille du « pas » en avant effectuer par le système pour atteindre le point d’apprentissage le plus efficient</li>
+</ul>
+<p><img src="pictures/LR1.png" width="" height="280" align="left" >
+<img src="pictures/LR2.png" width="" height="280" align="right" ></p>
+<h3 id="le-minimum-local">Le minimum local</h3>
+<hr>
+<h3 id="le-minimum-local">Le minimum local</h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>Le minimum local est point dans une zone où le système établit qu’il ne peut semble pense avoir obtenu la meilleure précision mais ne l’est effectivement pas sur la courbe de précision de classification.</li>
+</ul>
+<p><img src="pictures/minim-local.jpg" width="" height="350" align="" ></p>
+<h3 id="notion-de-d-riv-e-de-sigmo-de">Notion de dérivée de sigmoïde</h3>
+<hr>
+<h3 id="notion-de-d-riv-e-de-sigmo-de">Notion de dérivée de sigmoïde</h3>
+<h4 id="d-finition-">Définition :</h4>
+<h3 id="notion-de-d-riv-e-de-sigmo-de">Notion de dérivée de sigmoïde</h3>
+<h4 id="d-finition-suite-">Définition (suite) :</h4>
+<h3 id="le-vanishing-gradients">Le <em>vanishing gradients</em></h3>
+<hr>
+<p><img src="pictures/vanish.png" width="" height="130" align="" ></p>
+<h3 id="le-vanishing-gradients">Le <em>vanishing gradients</em></h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>Le vanishing gradients est une perte (ou fuite) de gradient, affectant les neurones plus profond et unités de saturations dans un réseau profond.</li>
+</ul>
+<p><img src="pictures/long-network.png" alt="TPU"></p>
+<h3 id="l-overfitting">L&#39;<em>overfitting</em></h3>
+<hr>
+<h3 id="l-overfitting">L&#39;<em>overfitting</em></h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>L’overfitting (ou surapprentissage) est une étape où le système est arrivé à reconnaitre quasi-seulement les images sur lesquelles il a été entrainé et une variation de lumière ou de milieu peut l’induire à ne pas reconnaitre l’objet.</li>
+</ul>
+<p><img src="pictures/overfitting.jpg" alt="TPU"></p>
+<h3 id="le-cross-validation">Le <em>cross-validation</em></h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>La validation croisée (<em>cross-validation</em>) est une méthode d’estimation de fiabilité d&#39;un modèle fondé sur une technique d&#39;échantillonnage. Cela sert à comparer la pertinence d&#39;un modèle par rapport à un autre.</li>
+</ul>
+<p><strong><!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre LES CONVOLUTIONS
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- --></strong></p>
+<h2 id="r-seau-neuronal-convolution">Réseau neuronal à convolution</h2>
+<p><img src="chapterHeader/convolution.gif" width="" height="350" align="" ></p>
+<h3 id="les-convolutions">Les convolutions</h3>
+<hr>
+<h3 id="les-convolutions">Les convolutions</h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>Les convolutions consistent en un empilage multicouche d&#39;algorithme, dont le but est de pré-traiter de petites quantités d&#39;informations.</li>
+</ul>
+<h3 id="les-convolutions">Les convolutions</h3>
+<h4 id="cas-concret-">Cas concret :</h4>
+<p><img src="pictures/convolution.PNG" width="" height="350" align="" ></p>
+<h3 id="les-blocs-de-construction">Les blocs de construction</h3>
+<hr>
+<h3 id="les-blocs-de-construction">Les blocs de construction</h3>
+<h4 id="d-finition-">Définition :</h4>
+<p>Une architecture de réseau de neurones convolutifs est formée par un empilement de couches de traitement (blocs de construction), il en existe 5 :</p>
+<ul>
+<li>la couche de convolution (CONV)</li>
+<li>la couche de pooling (POOL)</li>
+<li>la couche de correction (ReLU)</li>
+<li>la couche « entièrement connectée » (FC)</li>
+<li>la couche de perte (LOSS)</li>
+</ul>
+<h3 id="la-couche-de-pooling">La couche de <em>pooling</em></h3>
+<hr>
+<h3 id="la-couche-de-pooling">La couche de <em>pooling</em></h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>Le <em>pooling</em> (« mise en commun »), est une forme de sous-échantillonnage de l&#39;image.</li>
+<li>Le <em>pooling</em> réduit la taille spatiale d&#39;une image, réduisant ainsi la quantité de paramètres et de calcul dans le réseau. Il est donc fréquent d&#39;insérer périodiquement une couche de <em>pooling</em> entre deux couches convolutives successives d&#39;une architecture de réseau de neurones convolutifs pour réduire le sur-apprentissage.</li>
+</ul>
+<h3 id="la-couche-de-pooling">La couche de <em>pooling</em></h3>
+<p>[ ! ] Il existe plusieurs méthodes afin de réduire la taille spatiale d&#39;une image concernant le <em>pooling</em> :</p>
+<ul>
+<li><em>Average pooling</em></li>
+<li><em>Max-pooling</em></li>
+<li><em>L2-norm pooling</em></li>
+<li><em>Stocastic pooling</em></li>
+</ul>
+<h3 id="le-max-pooling">Le <em>max-pooling</em></h3>
+<hr>
+<h3 id="le-max-pooling">Le <em>max-pooling</em></h3>
+<h4 id="d-finition-">Définition :</h4>
+<ul>
+<li>Le <em>max-pooling</em> permet une réduction de la taille de la représentation en gardant seulement la plus grande valeur des tuiles dans le filtre.</li>
+</ul>
+<p><img src="pictures/maxPooling.png" width="" height="250" align="" ></p>
+<h3 id="le-max-pooling">Le <em>max-pooling</em></h3>
+<h4 id="d-taillons-">Détaillons :</h4>
+<p><img src="pictures/maxPooling.png" width="" height="250" align="" ></p>
+<ul>
+<li>Ici, nous avons un filtre de 2 x 2, avec un pas de 2  </li>
+</ul>
+<p><br/><font size=3>(il est possible d&#39;avoir un filtre plus important, ou encore, de ne pas avoir de couche de pooling)</font></p>
+<p><strong><!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre CONTACT & RESSOURCES
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- --></strong></p>
+<h2 id="contact">Contact</h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p><img src="logo/mmtt.png" width="" height="40" align="" ></p>
+<p>Tom DESHAIRES - MomentTech SAS</p>
+<p>@: <a href="mailto:tom.deshaires@mmtt.fr">
+tom.deshaires@mmtt.fr</a></p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a></p>
+
+<h3 id="ressources">Ressources</h3>
+<ul>
+<li>Wikipédia</li>
+<li><a href="https://playground.tensorflow.org"> TensorFlow Playground </a></li>
+<li><a href="https://0x003e.github.io/TRS-deep-learning/"> EPITA </a></li>
+<li><a href="https://blogs.msdn.microsoft.com/big_data_france/2014/06/17/evaluer-un-modle-en-apprentissage-automatique/"> Microsoft </a></li>
+<li><a href="https://www.technologies-ebusiness.com/enjeux-et-tendances/le-deep-learning-pas-a-pas"> Le deep-learning pas à pas </a></li>
+<li><a href="https://cs231n.github.io/"> Convolutional Neural Networks for Visual Recognition </a></li>
+<li><a href="https://wingshore.wordpress.com/"> Wingshore </a></li>
+<li><a href="https://www.quora.com/How-does-the-ReLu-solve-the-vanishing-gradient-problem"> Quora </a></li>
+</ul>
+
+				</article>
+			</div>
+		</div>
+
+		<footer><a href="site-index.html">Pages index</a>
+</footer>
+
+		<script src="assets/js/jquery.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/highlight.min.js"></script>
+		<script src="assets/js/tipuesearch_set.js"></script>
+		<script src="assets/js/tipuesearch.min.js"></script>
+		<script>
+			$(function() {
+				hljs.initHighlightingOnLoad();
+				$('#tipue_search_input').tipuesearch({
+					mode: 'json',
+					contentLocation: 'index.json'
+				});
+			});
+		</script>
+		
+		<!-- Generated by Vegetables from 'README.md' with format 'default' - '06/06/2018 à 10:10:37' -->
+	</body>
+</html>

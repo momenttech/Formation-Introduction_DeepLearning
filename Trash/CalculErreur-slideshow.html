@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Calcul d&#x27;erreur</title>
+	<link rel="stylesheet" href="../assets/css/reveal/reveal.css">
+	<link rel="stylesheet" href="../assets/css/reveal/theme/white.css">
+	<link rel="stylesheet" href="../assets/css/highlight-hybrid.css">
+	<link rel="stylesheet" href="../assets/css/slideshow.css">
+	<style>
+	</style>
+	<!--  -->
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-markdown
+			data-separator="(^#HSLIDE$|^#HSLIDE\?.*)"
+			data-separator-vertical="(^#VSLIDE$|^#VSLIDE\?.*)"
+			data-separator-notes="^Presentation note:"
+			data-charset="utf-8">
+			<script type="text/template">
+				## Calcul d'erreur
+#VSLIDE
+
+### Notion d'erreur
+
+---
+#VSLIDE
+
+### Notion d'erreur
+#### Définition :
+
+- A chaque itération, l&#39;algorithme va calculer un indicateur de performance globale (l&#39;erreur qu&#39;il commet) en comparant la sortie attendue et la sortie prédite.
+
+<img src="pictures/un-plus-un.jpg" width="" height="350" align="" >
+
+#VSLIDE
+
+### Le batch
+
+---
+#VSLIDE
+
+### Le batch
+#### Définition :
+#VSLIDE
+
+### Le minimum local
+
+---
+#VSLIDE
+
+### Le minimum local
+#### Définition :
+
+- Le minimum local est point dans une zone où le système établit qu’il ne peut semble pense avoir obtenu la meilleure précision mais ne l’est effectivement pas sur la courbe de précision de classification.
+
+<img src="pictures/minim-local.jpg" width="" height="350" align="" >
+
+#VSLIDE
+
+### Le learning rate
+
+---
+#VSLIDE
+
+### Le learning rate
+#### Définition :
+
+- Représente la taille du « pas » en avant effectuer par le système pour atteindre le point d’apprentissage le plus efficient
+
+<img src="pictures/LR1.png" width="" height="280" align="left" >
+<img src="pictures/LR2.png" width="" height="280" align="right" >
+
+#VSLIDE
+
+### Le vanishing gradients
+
+---
+<img src="pictures/vanish.png" width="" height="130" align="" >
+
+#VSLIDE
+
+### Le vanishing gradients
+#### Définition :
+
+- Le vanishing gradients est une perte (ou fuite) de gradient, affectant les neurones plus profond et unités de saturations dans un réseau profond.
+
+![TPU](pictures/long-network.png)
+
+#VSLIDE
+
+### L'overfitting
+
+---
+#VSLIDE
+
+### L'overfitting
+#### Définition :
+
+- L’overfitting (ou surapprentissage) est une étape où le système est arrivé à reconnaitre quasi-seulement les images sur lesquelles il a été entrainé et une variation de lumière ou de milieu peut l’induire à ne pas reconnaitre l’objet.
+
+![TPU](pictures/overfitting.jpg)
+
+
+			</script>
+		</section>
+	</div>
+</div>
+
+<script src="../assets/js/reveal/reveal.js"></script>
+<script src="../assets/js/reveal/lib/head.min.js"></script>
+<script src="../assets/js/jquery.js"></script>
+<script>
+Reveal.initialize({
+	embedded: true,
+	margin: 0.0,
+	showNotes: false,
+	transition: 'slide',
+	autoSlide: 0,
+	loop: false,
+	center: true,
+	rtl: false,
+	shuffle: false,
+	mouseWheel: false,
+	history: true,
+
+	// disabled for now
+	// math: {
+	// 	mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+	// 	config: 'TeX-AMS_HTML-full'
+	// },
+
+	dependencies: [
+		{ src: "../assets/js/reveal/plugin/markdown/marked.js"},
+		{ src: "../assets/js/reveal/plugin/markdown/markdown.js"},
+		{ src: "../assets/js/reveal/plugin/notes/notes.js"},
+		// { src: "../assets/js/reveal/plugin/math/math.js", async: true }
+		{ src: "../assets/js/reveal/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+	]
+});
+
+Reveal.configure({
+	keyboard: {
+		67: function() { // bind "s" key to "select" code block content
+
+		var currentSlide = Reveal.getCurrentSlide();
+		var preBlock = $(currentSlide).find("pre");
+
+		if(preBlock.length > 0) {
+
+			if (window.getSelection) {
+				var range = document.createRange();
+				range.selectNodeContents(preBlock[0]);
+				var selection = window.getSelection();
+				selection.removeAllRanges();
+				selection.addRange(range);
+			}
+		}
+	}
+}
+});
+
+</script>
+
+</body>
+</html>

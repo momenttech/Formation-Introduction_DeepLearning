@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Formation au Deep-Learning</title>
+	<link rel="stylesheet" href="assets/css/reveal/reveal.css">
+	<link rel="stylesheet" href="assets/css/reveal/theme/white.css">
+	<link rel="stylesheet" href="assets/css/highlight-hybrid.css">
+	<link rel="stylesheet" href="assets/css/slideshow.css">
+	<style>
+	</style>
+	<!--  -->
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-markdown
+			data-separator="(^#HSLIDE$|^#HSLIDE\?.*)"
+			data-separator-vertical="(^#VSLIDE$|^#VSLIDE\?.*)"
+			data-separator-notes="^Presentation note:"
+			data-charset="utf-8">
+			<script type="text/template">
+				# Formation au Deep-Learning
+
+---
+#HSLIDE
+
+## Sommaire
+
+- Les réseau de neurones
+- Les matrices : quelques rappels
+- Droites de régression
+- Listes de matrices
+- Calcul par CPU / GPU / TPU
+- Calcul d’erreur
+
+**<!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre RESEAU DE NEURONES
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
+#HSLIDE
+
+## Les Réseau de Neurones
+<img src="chapterHeader/architecture-N2.png" width="" height="550" align="" >
+
+#VSLIDE
+
+### Le réseau fully connected
+
+---
+#VSLIDE
+
+### Le réseau fully connected
+
+- Un réseau de neurones est considéré « *fully connected* » lorsque toute entrée est relié par une arête appelé « poids » et représenté par « *w<sub><font size=3>i,j</font></sub>* » à l’intégralité des neurones présents dans les couches cachées.
+
+<img src="pictures/deep-learning-weight-paths.gif" width="" height="350" align="" >
+
+#VSLIDE
+
+### Le réseau fully connected
+#### L'équation du neurone :
+Sortie du Neurone = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,1</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,1</font></sub> + B<sub><font size=3>1</font></sub> = **Régression lineaire**
+
+<img src="neurones/neuro1.PNG" width="" height="300" align="middle" > 
+<img src="neurones/linearite.png" width="" height="300" align="middle" >
+
+#VSLIDE
+
+### Le réseau fully connected
+#### Avec plusieurs neurones :
+<img src="neurones/neuro2.PNG" width="" height="300" align="" >
+
+Pour calculer la valeur d’un neurone, il faut effectuer la somme des connexions entrantes :
+Neurone 1 = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,1</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,1</font></sub> + B<sub><font size=3>1</font></sub>  
+<span style="color: #fb4141">Neurone 2 = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,2</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,2</font></sub> + B<sub><font size=3>2</font></sub></span>
+
+#VSLIDE
+
+### Le réseau fully connected
+#### Vue matricielle :
+<img src="neurones/neuro3.PNG" width="" height="300" align="" >
+<img src="neurones/Diapositive5.PNG" width="" height="150" align="" >
+
+#VSLIDE
+
+### Le réseau fully connected
+#### La Fonction d’Activation :
+###### <font size=3>(ou fonction de seuillage, ou encore fonction de transfert)</font>
+
+- Présente à la sortie du neurone.
+- Elle répond à trois exigences:
+ - Non linéaire   -&gt; Pour modéliser des fonctions complexes (non linéaires)
+ - Différentielle -&gt; Pour permetre la retro-propagation de l&#39;erreur
+ - Monotonique    -&gt; Pour éviter de rajouter des minimums locaux
+
+<img src="pictures/spiral.png" width="" height="300" align="" >
+
+**<!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre LES MATRICES : RAPPELS
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
+#HSLIDE
+
+## Les matrices : quelques rappels !
+<img src="chapterHeader/calculMatrice.png" width="" height="350" align="" >
+
+#VSLIDE
+
+### L'addition de matrice
+
+---
+#VSLIDE
+
+### L'addition de matrice
+<p>&nbsp;</p>
+
+
+- Généralités :
+ - L&#39;addition des matrices est définie pour deux matrices de même type.  
+- La somme de deux matrices de type (m, n), est obtenue en additionnant les éléments correspondants.
+
+#VSLIDE
+
+### L'addition de matrice
+<p>&nbsp;</p>
+
+#### Exemple avec :
+<img src="formules/addition1.PNG" alt="addition1" width="" height="150" align="" />
+
+#VSLIDE
+
+### L'addition de matrice
+<p>&nbsp;</p>
+
+#### Étape 1 :
+<p>&nbsp;</p>
+
+<img src="formules/addition2.PNG" alt="addition2" width="" height="150" align="" />
+
+#VSLIDE
+
+### L'addition de matrice
+<p>&nbsp;</p>
+
+#### Étape 2 :
+<p>&nbsp;</p>
+
+<img src="formules/addition3.PNG" alt="addition3" width="" height="150" align="" />
+
+#VSLIDE
+
+### Le produit matriciel
+
+---
+#VSLIDE
+
+### Le produit matriciel
+#### Généralités :
+
+- La multiplication des matrices n&#39;est pas <u>commutative</u>, **c&#39;est-à-dire que A&bull;B n&#39;est pas égal à B&bull;A**.
+
+À l’avenir, nous aurons seulement besoin de connaître le produit d’une matrice de type (1,<u>2</u>) et d’une matrice de type (<u>2</u>,2).
+
+<p>&nbsp;</p>
+
+<span style="color: #fb4141">**[!]** Produit matriciel &ne; multiplication de matrice</span>
+
+#VSLIDE
+
+### Le produit matriciel
+#### Exemple avec :
+<img src="formules/multi1.PNG" alt="multi1" width="" height="150" align="" />
+
+#VSLIDE
+
+### Le produit matriciel
+<p>&nbsp;</p>
+
+#### Étape 1 :
+<p>&nbsp;</p>
+
+<img src="formules/multi2.PNG" alt="multi2" width="" height="150" align="" />
+
+#VSLIDE
+
+### Le produit matriciel
+<p>&nbsp;</p>
+
+#### Étape 2 :
+<p>&nbsp;</p>
+
+<img src="formules/multi3.PNG" alt="multi3" width="" height="300" align="" />
+
+#VSLIDE
+
+### Le produit matriciel
+<p>&nbsp;</p>
+
+#### Étape 2 :
+<p>&nbsp;</p>
+
+<img src="formules/multi4.PNG" alt="multi4" width="" height="300" align="" />
+
+#VSLIDE
+
+### Le produit matriciel
+<p>&nbsp;</p>
+
+#### Étape 2 :
+<p>&nbsp;</p>
+
+<img src="formules/multi5.PNG" alt="multi5" width="" height="300" align="" />
+
+#VSLIDE
+
+### Le produit matriciel
+<p>&nbsp;</p>
+
+#### Étape 3 :
+<p>&nbsp;</p>
+
+<img src="formules/multi6.PNG" alt="multi6" width="" height="300" align="" />
+
+#VSLIDE
+
+### Le produit matriciel
+<p>&nbsp;</p>
+
+#### Étape 4 :
+<p>&nbsp;</p>
+
+<img src="formules/multi7.PNG" alt="multi7" width="" height="300" align="" />
+
+#VSLIDE
+
+### Le produit matriciel
+<p>&nbsp;</p>
+
+#### Étape 5 :
+<p>&nbsp;</p>
+
+<img src="formules/multi8.PNG" alt="multi8" width="" height="150" align="" />
+
+#VSLIDE
+
+### Le produit matriciel
+<p>&nbsp;</p>
+
+#### Étape 6 :
+<p>&nbsp;</p>
+
+<img src="formules/multi9.PNG" alt="multi9" width="" height="150" align="" />
+
+**<!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre DROITES DE REGRESSION
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
+#HSLIDE
+
+## Droites de régression
+<img src="chapterHeader/regression.gif" width="" height="350" align="" >
+
+#VSLIDE
+
+### Régression linéaire
+
+---
+#VSLIDE
+
+### Régression linéaire
+#### Définition :
+
+- Désigne un modèle dans lesquels est la médiane conditionnelle de **« y »** sachant **« x »**.
+- Le modèle de régression linéaire est souvent estimé par la méthode des moindres carrés mais il existe aussi de nombreuses autres méthodes pour estimer ce modèle.
+
+#VSLIDE
+
+### Régression linéaire
+#### Représentation graphique du réseau précèdent :
+<img src=" neurones/linearite.png" width="" height="200" align="" >  
+Voici une droite de régression linéaire. Par définition elle suit l&#39;équation suivante :  
+*<b>ax + b</b>*  
+Afin de mieux comprendre et de l&#39;appliquer à notre réseau de neurone, nous pouvons l&#39;écrire de la façon suivante :  
+*<b>xw + B</b>*  
+
+<font size=3>*x : la valeur d&#39;entrée*  
+*w : le poids*  
+*B : le biais*</font>
+
+#VSLIDE
+
+### Régression linéaire
+#### Représentation graphique du réseau précèdent :
+![Playground 2 neurones](pictures/playgrnd-reseau-simple.png)
+
+Ce schéma représente ainsi la fonction d’activation
+
+#VSLIDE
+
+### La fonction d'activation
+
+---
+#VSLIDE
+
+### La fonction d'activation
+#### Définition :
+
+- La fonction d’activation est une fonction mathématique appliquée à un signal en sortie d&#39;un neurone artificiel. Soit dans notre cas à la droite de régression linéaire.
+
+#VSLIDE
+
+### La fonction d'activation
+#### Graphiquement :
+<img src="pictures/courbes.PNG" width="" height="400" align="" >
+
+#VSLIDE
+
+### La fonction d'activation
+#### Cas pratique :
+
+- http://playground.tensorflow.org
+
+<img src="pictures/exemple_relu.png" width="" height="350" align="" >
+
+**<!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre LISTES DE MATRICES
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
+#HSLIDE
+
+## Listes de matrices
+<img src="chapterHeader/matrice4d.png" width="" height="350" align="" >
+
+#VSLIDE
+
+### Une matrice
+
+---
+#VSLIDE
+
+### Une matrice
+#### Définition :
+
+- Une matrice est une liste de listes, une liste est une liste de vecteurs, un vecteur est une liste de chiffres.
+
+<img src="pictures/matrix.jpg" width="" height="350" align="" >
+
+#VSLIDE
+
+### Une matrice
+#### Prenons pour exemple, cette image :
+<img src="pictures/dog.jpg" width="" height="350" align="" >
+
+#VSLIDE
+
+### Une matrice
+#### Prenons pour exemple, cette image :
+<TABLE BORDER=1>
+  <TR>
+    <TD><img src="pictures/dog.jpg" width="" height="150" align="" ></TD>
+    <TD style="vertical-align: top;"><u>Détails image :</u>  
+     **- Dimensions :**  
+       1280 x 768  
+     **- Caractéristiques :**  
+       En couleurs (3 dimensions)</TD>
+    <TD><img src="neurones/matrice.PNG" width="" height="150" align="" ></TD>
+  </TR>
+</TABLE>
+
+**<!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre CALCUL CPU/GPU/TPU
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
+#HSLIDE
+
+## Calculs par CPU / GPU / TPU
+<img src="chapterHeader/CPU-GPU-TPU.jpg" width="" height="250" align="" >
+
+#VSLIDE
+
+### CPU versus GPU
+
+---
+#VSLIDE
+
+### CPU versus GPU
+#### Le facteur nombre de cœurs :
+![Comparaison CPU - GPU](pictures/cpu-vs-gpu.jpg)
+
+#VSLIDE
+
+### CPU versus GPU
+
+- Avantages :
+ - Accélération via GPU des applications
+
+![Schema CPU - GPU](pictures/accelleration-gpu.png)
+
+#VSLIDE
+
+### CPU versus GPU
+#### Démonstration :
+<img src="pictures/cpu.gif" width="" height="280" align="left" >
+<img src="pictures/gpu.gif" width="" height="280" align="right" >
+
+https://www.youtube.com/watch?v=-P28LKWTzrI
+
+#VSLIDE
+
+### TPU ? Késako ?
+
+---
+#VSLIDE
+
+### TPU ? Késako ?
+#### Définition :
+
+- Le TPU (Tensor Processor Unit) est un module hardware dédié spécifiquement aux applications de Machine Learning
+
+<img src="pictures/tpu.png" width="" height="350" align="" >
+
+**<!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre CALCUL D'ERREUR
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
+#HSLIDE
+
+## Calcul d'erreur
+<img src="chapterHeader/errorLearning.jpg" width="" height="350" align="" >
+
+#VSLIDE
+
+### Notion d'erreur
+
+---
+#VSLIDE
+
+### Notion d'erreur
+#### Définition :
+
+- A chaque itération, l&#39;algorithme va calculer un indicateur de performance globale (l&#39;erreur qu&#39;il commet) en comparant la sortie attendue et la sortie prédite.
+
+<img src="pictures/un-plus-un.jpg" width="" height="350" align="" >
+
+#VSLIDE
+
+### Le batch
+
+---
+#VSLIDE
+
+### Le batch
+#### Définition :
+#VSLIDE
+
+### Le gradient descent
+
+---
+#VSLIDE
+
+### Le gradient descent
+#### Définition :
+#VSLIDE
+
+### Le learning rate
+
+---
+#VSLIDE
+
+### Le learning rate
+#### Définition :
+
+- Représente la taille du « pas » en avant effectuer par le système pour atteindre le point d’apprentissage le plus efficient
+
+<img src="pictures/LR1.png" width="" height="280" align="left" >
+<img src="pictures/LR2.png" width="" height="280" align="right" >
+
+#VSLIDE
+
+### Le minimum local
+
+---
+#VSLIDE
+
+### Le minimum local
+#### Définition :
+
+- Le minimum local est point dans une zone où le système établit qu’il ne peut semble pense avoir obtenu la meilleure précision mais ne l’est effectivement pas sur la courbe de précision de classification.
+
+<img src="pictures/minim-local.jpg" width="" height="350" align="" >
+
+#VSLIDE
+
+### Notion de dérivée de sigmoïde
+
+---
+#VSLIDE
+
+### Notion de dérivée de sigmoïde
+#### Définition :
+#VSLIDE
+
+### Notion de dérivée de sigmoïde
+#### Définition (suite) :
+#VSLIDE
+
+### Le vanishing gradients
+
+---
+<img src="pictures/vanish.png" width="" height="130" align="" >
+
+#VSLIDE
+
+### Le vanishing gradients
+#### Définition :
+
+- Le vanishing gradients est une perte (ou fuite) de gradient, affectant les neurones plus profond et unités de saturations dans un réseau profond.
+
+![TPU](pictures/long-network.png)
+
+#VSLIDE
+
+### L'overfitting
+
+---
+#VSLIDE
+
+### L'overfitting
+#### Définition :
+
+- L’overfitting (ou surapprentissage) est une étape où le système est arrivé à reconnaitre quasi-seulement les images sur lesquelles il a été entrainé et une variation de lumière ou de milieu peut l’induire à ne pas reconnaitre l’objet.
+
+![TPU](pictures/overfitting.jpg)
+
+#VSLIDE
+
+### Le cross-validation
+#### Définition :
+
+- La validation croisée (*cross-validation*) est une méthode d’estimation de fiabilité d&#39;un modèle fondé sur une technique d&#39;échantillonnage. Cela sert à comparer la pertinence d&#39;un modèle par rapport à un autre.
+
+**<!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre LES CONVOLUTIONS
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
+#HSLIDE
+
+## Réseau neuronal à convolution
+<img src="chapterHeader/convolution.gif" width="" height="350" align="" >
+
+#VSLIDE
+
+### Les convolutions
+
+---
+#VSLIDE
+
+### Les convolutions
+#### Définition :
+
+- Les convolutions consistent en un empilage multicouche d&#39;algorithme, dont le but est de pré-traiter de petites quantités d&#39;informations.
+
+#VSLIDE
+
+### Les convolutions
+#### Cas concret :
+<img src="pictures/convolution.PNG" width="" height="350" align="" >
+
+#VSLIDE
+
+### Les blocs de construction
+
+---
+#VSLIDE
+
+### Les blocs de construction
+#### Définition :
+Une architecture de réseau de neurones convolutifs est formée par un empilement de couches de traitement (blocs de construction), il en existe 5 :
+
+
+- la couche de convolution (CONV)
+- la couche de pooling (POOL)
+- la couche de correction (ReLU)
+- la couche « entièrement connectée » (FC)
+- la couche de perte (LOSS)
+
+#VSLIDE
+
+### La couche de pooling
+
+---
+#VSLIDE
+
+### La couche de pooling
+#### Définition :
+
+- Le *pooling* (« mise en commun »), est une forme de sous-échantillonnage de l&#39;image.
+- Le *pooling* réduit la taille spatiale d&#39;une image, réduisant ainsi la quantité de paramètres et de calcul dans le réseau. Il est donc fréquent d&#39;insérer périodiquement une couche de *pooling* entre deux couches convolutives successives d&#39;une architecture de réseau de neurones convolutifs pour réduire le sur-apprentissage.
+
+#VSLIDE
+
+### La couche de pooling
+[ ! ] Il existe plusieurs méthodes afin de réduire la taille spatiale d&#39;une image concernant le *pooling* :
+
+
+- *Average pooling*
+- *Max-pooling*
+- *L2-norm pooling*
+- *Stocastic pooling*
+
+#VSLIDE
+
+### Le max-pooling
+
+---
+#VSLIDE
+
+### Le max-pooling
+#### Définition :
+
+- Le *max-pooling* permet une réduction de la taille de la représentation en gardant seulement la plus grande valeur des tuiles dans le filtre.
+
+<img src="pictures/maxPooling.png" width="" height="250" align="" >
+
+#VSLIDE
+
+### Le max-pooling
+#### Détaillons :
+<img src="pictures/maxPooling.png" width="" height="250" align="" >
+
+
+- Ici, nous avons un filtre de 2 x 2, avec un pas de 2  
+
+<br/><font size=3>(il est possible d&#39;avoir un filtre plus important, ou encore, de ne pas avoir de couche de pooling)</font>
+
+**<!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre CONTACT & RESSOURCES
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
+#HSLIDE
+
+## Contact
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<img src="logo/mmtt.png" width="" height="40" align="" >
+
+<p>Tom DESHAIRES - MomentTech SAS</p>
+<p>@: <a href="mailto:tom.deshaires@mmtt.fr">
+tom.deshaires@mmtt.fr</a></p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a></p>
+
+#VSLIDE
+
+### Ressources
+
+- Wikipédia
+- <a href="https://playground.tensorflow.org"> TensorFlow Playground </a>
+- <a href="https://0x003e.github.io/TRS-deep-learning/"> EPITA </a>
+- <a href="https://blogs.msdn.microsoft.com/big_data_france/2014/06/17/evaluer-un-modle-en-apprentissage-automatique/"> Microsoft </a>
+- <a href="https://www.technologies-ebusiness.com/enjeux-et-tendances/le-deep-learning-pas-a-pas"> Le deep-learning pas à pas </a>
+- <a href="https://cs231n.github.io/"> Convolutional Neural Networks for Visual Recognition </a>
+- <a href="https://wingshore.wordpress.com/"> Wingshore </a>
+- <a href="https://www.quora.com/How-does-the-ReLu-solve-the-vanishing-gradient-problem"> Quora </a>
+
+
+			</script>
+		</section>
+	</div>
+</div>
+
+<script src="assets/js/reveal/reveal.js"></script>
+<script src="assets/js/reveal/lib/head.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script>
+Reveal.initialize({
+	embedded: true,
+	margin: 0.0,
+	showNotes: false,
+	transition: 'slide',
+	autoSlide: 0,
+	loop: false,
+	center: true,
+	rtl: false,
+	shuffle: false,
+	mouseWheel: false,
+	history: true,
+
+	// disabled for now
+	// math: {
+	// 	mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+	// 	config: 'TeX-AMS_HTML-full'
+	// },
+
+	dependencies: [
+		{ src: "assets/js/reveal/plugin/markdown/marked.js"},
+		{ src: "assets/js/reveal/plugin/markdown/markdown.js"},
+		{ src: "assets/js/reveal/plugin/notes/notes.js"},
+		// { src: "assets/js/reveal/plugin/math/math.js", async: true }
+		{ src: "assets/js/reveal/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+	]
+});
+
+Reveal.configure({
+	keyboard: {
+		67: function() { // bind "s" key to "select" code block content
+
+		var currentSlide = Reveal.getCurrentSlide();
+		var preBlock = $(currentSlide).find("pre");
+
+		if(preBlock.length > 0) {
+
+			if (window.getSelection) {
+				var range = document.createRange();
+				range.selectNodeContents(preBlock[0]);
+				var selection = window.getSelection();
+				selection.removeAllRanges();
+				selection.addRange(range);
+			}
+		}
+	}
+}
+});
+
+</script>
+
+</body>
+</html>
