@@ -4,7 +4,7 @@
 -----------------
 
 ## Sommaire
-* Les réseau de neurones
+* Les réseaux de neurones
 * Les matrices : quelques rappels
 * Droites de régression
 * Listes de matrices
