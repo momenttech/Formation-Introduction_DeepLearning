@@ -320,7 +320,7 @@ Ce schéma représente ainsi la fonction d’activation
 
 #### Prenons pour exemple, cette image :
 
-<TABLE BORDER=1>
+<TABLE BORDER=0>
   <TR>
     <TD><img src="pictures/dog.jpg" width="" height="150" align="" ></TD>
     <TD style="vertical-align: top;"><u>Détails image :</u>  
@@ -410,6 +410,10 @@ https://www.youtube.com/watch?v=-P28LKWTzrI
 
 #### Définition :
 
+* Le _batch_ représente le panel d'images qui serviront à entraîner notre système.  
+Dans le cas d'un entraînement de modèle, le _batch_ est répartie de la façon suivante :
+
+<img src="pictures/handson-deep-learning-in-python-13-638.jpg" width="" height="350" align="" >
 
 ### Le _gradient descent_
 
@@ -456,12 +460,14 @@ https://www.youtube.com/watch?v=-P28LKWTzrI
 
 ### Notion de dérivée de sigmoïde
 
-#### Définition :
+#### Définition d'une fonction sigmoïde :
 
+La fonction sigmoïde représente la fonction de répartition, qui est une mesure de __probabilité__.
+[Schéma]
 
 ### Notion de dérivée de sigmoïde
 
-#### Définition (suite) :
+#### Définition :
 
 
 
