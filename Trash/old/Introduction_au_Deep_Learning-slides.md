@@ -4,70 +4,12 @@
 -----------------
 
 ## Sommaire
-* Les réseaux de neurones
 * Les matrices : quelques rappels
+* Réseau de neurones
 * Droites de régression
 * Listes de matrices
 * Calcul par CPU / GPU / TPU
 * Calcul d’erreur
-
-__<!-- -------------------------------------------------------------------------------------------------------------------------
-/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-                                               Chapitre RÉSEAUX DE NEURONES
-/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
--------------------------------------------------------------------------------------------------------------------------- -->__
-
-## Les Réseaux de Neurones
-
-<img src="chapterHeader/architecture-N2.png" width="" height="550" align="" >
-
-### Le réseau _fully connected_
------------------
-
-### Le réseau _fully connected_
-
-  * Un réseau de neurones est considéré « _fully connected_ » lorsque toute entrée est relié par une arête appelé « poids » et représenté par « _w<sub><font size=3>i,j</font></sub>_ » à l’intégralité des neurones présents dans les couches cachées.
-
-<img src="pictures/deep-learning-weight-paths.gif" width="" height="350" align="" >
-
-### Le réseau _fully connected_
-
-#### L'équation du neurone :
-Sortie du Neurone = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,1</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,1</font></sub> + B<sub><font size=3>1</font></sub> = **Régression lineaire**
-
-<img src="neurones/neuro1.PNG" width="" height="300" align="middle" >
-<img src="neurones/linearite.png" width="" height="300" align="middle" >
-
-
-### Le réseau _fully connected_
-
-#### Avec plusieurs neurones :
-
-<img src="neurones/neuro2.PNG" width="" height="300" align="" >
-
-Pour calculer la valeur d’un neurone, il faut effectuer la somme des connexions entrantes :
-Neurone 1 = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,1</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,1</font></sub> + B<sub><font size=3>1</font></sub>  
-Neurone 2 = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,2</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,2</font></sub> + B<sub><font size=3>2</font></sub>
-
-### Le réseau _fully connected_
-
-#### Vue matricielle :
-
-<img src="neurones/neuro3.PNG" width="" height="300" align="" >
-<img src="neurones/Diapositive5.PNG" width="" height="300" align="" >
-
-
-### Le réseau _fully connected_
-
-#### La Fonction d’Activation :
-###### <font size=3>(ou fonction de seuillage, ou encore fonction de transfert)</font>
-  * Présente à la sortie du neurone.
-  * Elle répond à trois exigences:
-    * Non linéaire   -> Pour modéliser des fonctions complexes
-    * Différentielle -> Pour permettre la retro-propagation de l'erreur
-    * Monotonique    -> Pour éviter de rajouter des minimums locaux
-
-<img src="pictures/spiral.png" width="" height="300" align="" >
 
 __<!-- -------------------------------------------------------------------------------------------------------------------------
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
@@ -223,7 +165,85 @@ __<!-- -------------------------------------------------------------------------
 
 __<!-- -------------------------------------------------------------------------------------------------------------------------
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-                                               Chapitre DROITES DE RÉGRESSION
+                                               Chapitre RESEAU DE NEURONES
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- -->__
+
+## Réseau de neurones
+
+<img src="chapterHeader/neuralNetwork.png" width="" height="350" align="" >
+
+### Le réseau _fully connected_
+
+-----------------
+
+### Le réseau _fully connected_
+
+#### Définition :
+
+  * Le neurone formel est conçu comme un automate doté d'une fonction de transfert qui transforme ses entrées en sortie selon des règles précises. Ces neurones sont par ailleurs associés en réseaux dont la topologie des connexions est variable : réseaux proactifs, récurrents, etc..
+
+<img src="pictures/nerve-cell.jpg" width="" height="350" align="" >
+
+
+### Le réseau _fully connected_
+
+  * Un réseau de neurones est considéré « _fully connected_ » lorsque toute entrée est relié par une arête appelé « poids » et représenté par « _w<sub><font size=3>i,j</font></sub>_ » à l’intégralité des neurones présents dans les couches cachées.
+
+<img src="pictures/neurons-network.jpg" width="" height="350" align="" >
+
+### Le réseau _fully connected_
+
+#### Représentation graphique :
+
+<img src="neurones/graph_neurones.PNG" width="" height="400" align="" >
+
+[ ! ] Les couches cachées sont appelé zone de « pré-activation » et l’ensemble des output zone d’ « activation ».
+
+### Le réseau _fully connected_
+
+#### Définition d'un biais :
+  * Le biais est l'erreur provenant d’hypothèses erronées dans l'algorithme d'apprentissage. Un biais élevé peut être lié à un algorithme qui manque de relations pertinentes entre les données en entrée et les sorties prévues (sous-apprentissage).
+
+### Le réseau _fully connected_
+
+#### Définition d’une fonction d’activation :
+  * La fonction d’activation (ou fonction de seuillage, ou encore fonction de transfert) sert à introduire une non-linéarité dans le fonctionnement du neurone.
+
+  * Les fonctions de seuillage présentent généralement trois intervalles :
+    * en dessous du seuil, le neurone est **non-actif**
+    * aux alentours du seuil, une **phase de transition**
+    * au-dessus du seuil, le neurone est **actif**
+
+### Le réseau _fully connected_
+
+#### Calcul de la valeur d'un neurone :
+
+<img src="neurones/neuro1.PNG" width="" height="300" align="" >
+
+Pour calculer la valeur d’un neurone, il faut effectuer la somme des connexions entrantes :
+<span style="color: #fb4141">Neurone 1 = X<sub><font size=3>1</font></sub>W<sub>1,1</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,1</font></sub> + B<sub><font size=3>1</font></sub></span>
+
+### Le réseau _fully connected_
+
+#### Calcul de la valeur d'un neurone :
+
+<img src="neurones/neuro2.PNG" width="" height="300" align="" >
+
+Pour calculer la valeur d’un neurone, il faut effectuer la somme des connexions entrantes :
+Neurone 1 = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,1</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,1</font></sub> + B<sub><font size=3>1</font></sub>  
+<span style="color: #fb4141">Neurone 2 = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,2</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,2</font></sub> + B<sub><font size=3>2</font></sub></span>
+
+### Le réseau _fully connected_
+
+#### Calcul de la valeur d'un neurone :
+
+<img src="neurones/neuro3.PNG" width="" height="300" align="" >
+<img src="neurones/Diapositive5.PNG" width="" height="300" align="" >
+
+__<!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre DROITES DE REGRESSION
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 -------------------------------------------------------------------------------------------------------------------------- -->__
 
@@ -409,7 +429,8 @@ __<!-- -------------------------------------------------------------------------
 ### Le _batch_
 
 #### Définition :
-
+Le _batch_ est un échantillon du panel d'images qui serviront à entraîner notre système.  
+Dans le cas d'un entraînement de modèle, le batch est d'environ 10 à 20% du panel d'images, permettant lors de l’entraînement de venir tester l'efficacité du modèle.
 
 ### Le _gradient descent_
 
@@ -431,7 +452,7 @@ __<!-- -------------------------------------------------------------------------
 
 #### Définition :
 
-  * Représente la taille du « pas » en avant, effectué par le système, pour atteindre le point d’apprentissage le plus efficient
+  * Représente la taille du « pas » en avant effectué par le système pour atteindre le point d’apprentissage le plus efficient
 
 <img src="pictures/LR1.png" width="" height="280" align="left" >
 <img src="pictures/LR2.png" width="" height="280" align="right" >
@@ -445,7 +466,7 @@ __<!-- -------------------------------------------------------------------------
 
 #### Définition :
 
-  * Le minimum local est point dans une zone où le système établit qu’il ne peut semble pense avoir obtenu la meilleure précision mais ne l’est effectivement pas sur la courbe de précision de classification.
+  * Le minimum local est point dans une zone où le système établit qu’il obtient la meilleure précision mais ne l’est effectivement pas sur la courbe de précision de classification.
 
 <img src="pictures/minim-local.jpg" width="" height="350" align="" >
 
@@ -594,9 +615,9 @@ __<!-- -------------------------------------------------------------------------
 
 <img src="logo/mmtt.png" width="" height="40" align="" >
 
-<p>MomentTech SAS</p>
-<p>@: <a href="mailto:contact@mmtt.fr">
-contact@mmtt.fr</a></p>
+<p>Tom DESHAIRES - MomentTech SAS</p>
+<p>@: <a href="mailto:tom.deshaires@mmtt.fr">
+tom.deshaires@mmtt.fr</a></p>
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
