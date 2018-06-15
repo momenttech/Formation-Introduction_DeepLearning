@@ -4,10 +4,10 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>Formation au Deep-Learning</title>
-	<link rel="stylesheet" href="assets/css/reveal/reveal.css">
-	<link rel="stylesheet" href="assets/css/reveal/theme/white.css">
-	<link rel="stylesheet" href="assets/css/highlight-hybrid.css">
-	<link rel="stylesheet" href="assets/css/slideshow.css">
+	<link rel="stylesheet" href="../../assets/css/reveal/reveal.css">
+	<link rel="stylesheet" href="../../assets/css/reveal/theme/white.css">
+	<link rel="stylesheet" href="../../assets/css/highlight-hybrid.css">
+	<link rel="stylesheet" href="../../assets/css/slideshow.css">
 	<style>
 	</style>
 	<!--  -->
@@ -28,81 +28,19 @@
 
 ## Sommaire
 
-- Les réseaux de neurones
 - Les matrices : quelques rappels
+- Réseau de neurones
 - Droites de régression
 - Listes de matrices
 - Calcul par CPU / GPU / TPU
 - Calcul d’erreur
 
-<!-- -------------------------------------------------------------------------------------------------------------------------
-/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-                                               Chapitre RÉSEAUX DE NEURONES
-/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
--------------------------------------------------------------------------------------------------------------------------- -->
-#HSLIDE
-
-## Les Réseaux de Neurones
-<img src="chapterHeader/architecture-N2.png" width="" height="550" align="" >
-
-#VSLIDE
-
-### Le réseau fully connected
-
----
-#VSLIDE
-
-### Le réseau fully connected
-
-- Un réseau de neurones est considéré « *fully connected* » lorsque toute entrée est relié par une arête appelé « poids » et représenté par « *w<sub><font size=3>i,j</font></sub>* » à l’intégralité des neurones présents dans les couches cachées.
-
-<img src="pictures/deep-learning-weight-paths.gif" width="" height="350" align="" >
-
-#VSLIDE
-
-### Le réseau fully connected
-#### L'équation du neurone :
-Sortie du Neurone = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,1</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,1</font></sub> + B<sub><font size=3>1</font></sub> = **Régression lineaire**
-
-<img src="neurones/neuro1.PNG" width="" height="300" align="middle" >
-<img src="neurones/linearite.png" width="" height="300" align="middle" >
-
-#VSLIDE
-
-### Le réseau fully connected
-#### Avec plusieurs neurones :
-<img src="neurones/neuro2.PNG" width="" height="300" align="" >
-
-Pour calculer la valeur d’un neurone, il faut effectuer la somme des connexions entrantes :
-Neurone 1 = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,1</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,1</font></sub> + B<sub><font size=3>1</font></sub>  
-Neurone 2 = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,2</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,2</font></sub> + B<sub><font size=3>2</font></sub>
-
-#VSLIDE
-
-### Le réseau fully connected
-#### Vue matricielle :
-<img src="neurones/neuro3.PNG" width="" height="300" align="" >
-<img src="neurones/Diapositive5.PNG" width="" height="300" align="" >
-
-#VSLIDE
-
-### Le réseau fully connected
-#### La Fonction d’Activation :
-###### <font size=3>(ou fonction de seuillage, ou encore fonction de transfert)</font>
-
-- Présente à la sortie du neurone.
-- Elle répond à trois exigences:
- - Non linéaire   -&gt; Pour modéliser des fonctions complexes
- - Différentielle -&gt; Pour permettre la retro-propagation de l&#39;erreur
- - Monotonique    -&gt; Pour éviter de rajouter des minimums locaux
-
-<img src="pictures/spiral.png" width="" height="300" align="" >
-
-<!-- -------------------------------------------------------------------------------------------------------------------------
+**<!-- -------------------------------------------------------------------------------------------------------------------------
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
                                                Chapitre LES MATRICES : RAPPELS
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
--------------------------------------------------------------------------------------------------------------------------- -->
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
 #HSLIDE
 
 ## Les matrices : quelques rappels !
@@ -255,11 +193,97 @@ Neurone 2 = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,2</font></sub>
 
 <img src="formules/multi9.PNG" alt="multi9" width="" height="150" align="" />
 
-<!-- -------------------------------------------------------------------------------------------------------------------------
+**<!-- -------------------------------------------------------------------------------------------------------------------------
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
-                                               Chapitre DROITES DE RÉGRESSION
+                                               Chapitre RESEAU DE NEURONES
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
--------------------------------------------------------------------------------------------------------------------------- -->
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
+#HSLIDE
+
+## Réseau de neurones
+<img src="chapterHeader/neuralNetwork.png" width="" height="350" align="" >
+
+#VSLIDE
+
+### Le réseau fully connected
+
+---
+#VSLIDE
+
+### Le réseau fully connected
+#### Définition :
+
+- Le neurone formel est conçu comme un automate doté d&#39;une fonction de transfert qui transforme ses entrées en sortie selon des règles précises. Ces neurones sont par ailleurs associés en réseaux dont la topologie des connexions est variable : réseaux proactifs, récurrents, etc..
+
+<img src="pictures/nerve-cell.jpg" width="" height="350" align="" >
+
+#VSLIDE
+
+### Le réseau fully connected
+
+- Un réseau de neurones est considéré « *fully connected* » lorsque toute entrée est relié par une arête appelé « poids » et représenté par « *w<sub><font size=3>i,j</font></sub>* » à l’intégralité des neurones présents dans les couches cachées.
+
+<img src="pictures/neurons-network.jpg" width="" height="350" align="" >
+
+#VSLIDE
+
+### Le réseau fully connected
+#### Représentation graphique :
+<img src="neurones/graph_neurones.PNG" width="" height="400" align="" >
+
+[ ! ] Les couches cachées sont appelé zone de « pré-activation » et l’ensemble des output zone d’ « activation ».
+
+#VSLIDE
+
+### Le réseau fully connected
+#### Définition d'un biais :
+
+- Le biais est l&#39;erreur provenant d’hypothèses erronées dans l&#39;algorithme d&#39;apprentissage. Un biais élevé peut être lié à un algorithme qui manque de relations pertinentes entre les données en entrée et les sorties prévues (sous-apprentissage).
+
+#VSLIDE
+
+### Le réseau fully connected
+#### Définition d’une fonction d’activation :
+
+- La fonction d’activation (ou fonction de seuillage, ou encore fonction de transfert) sert à introduire une non-linéarité dans le fonctionnement du neurone.
+- Les fonctions de seuillage présentent généralement trois intervalles :
+ - en dessous du seuil, le neurone est **non-actif**
+ - aux alentours du seuil, une **phase de transition**
+ - au-dessus du seuil, le neurone est **actif**
+
+#VSLIDE
+
+### Le réseau fully connected
+#### Calcul de la valeur d'un neurone :
+<img src="neurones/neuro1.PNG" width="" height="300" align="" >
+
+Pour calculer la valeur d’un neurone, il faut effectuer la somme des connexions entrantes :
+<span style="color: #fb4141">Neurone 1 = X<sub><font size=3>1</font></sub>W<sub>1,1</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,1</font></sub> + B<sub><font size=3>1</font></sub></span>
+
+#VSLIDE
+
+### Le réseau fully connected
+#### Calcul de la valeur d'un neurone :
+<img src="neurones/neuro2.PNG" width="" height="300" align="" >
+
+Pour calculer la valeur d’un neurone, il faut effectuer la somme des connexions entrantes :
+Neurone 1 = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,1</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,1</font></sub> + B<sub><font size=3>1</font></sub>  
+<span style="color: #fb4141">Neurone 2 = X<sub><font size=3>1</font></sub>W<sub><font size=3>1,2</font></sub> + X<sub><font size=3>2</font></sub>W<sub><font size=3>2,2</font></sub> + B<sub><font size=3>2</font></sub></span>
+
+#VSLIDE
+
+### Le réseau fully connected
+#### Calcul de la valeur d'un neurone :
+<img src="neurones/neuro3.PNG" width="" height="300" align="" >
+<img src="neurones/Diapositive5.PNG" width="" height="300" align="" >
+
+**<!-- -------------------------------------------------------------------------------------------------------------------------
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+                                               Chapitre DROITES DE REGRESSION
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
 #HSLIDE
 
 ## Droites de régression
@@ -327,11 +351,12 @@ Ce schéma représente ainsi la fonction d’activation
 
 <img src="pictures/exemple_relu.png" width="" height="350" align="" >
 
-<!-- -------------------------------------------------------------------------------------------------------------------------
+**<!-- -------------------------------------------------------------------------------------------------------------------------
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
                                                Chapitre LISTES DE MATRICES
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
--------------------------------------------------------------------------------------------------------------------------- -->
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
 #HSLIDE
 
 ## Listes de matrices
@@ -361,7 +386,7 @@ Ce schéma représente ainsi la fonction d’activation
 
 ### Une matrice
 #### Prenons pour exemple, cette image :
-<TABLE BORDER=0>
+<TABLE BORDER=1>
   <TR>
     <TD><img src="pictures/dog.jpg" width="" height="150" align="" ></TD>
     <TD style="vertical-align: top;"><u>Détails image :</u>  
@@ -373,11 +398,12 @@ Ce schéma représente ainsi la fonction d’activation
   </TR>
 </TABLE>
 
-<!-- -------------------------------------------------------------------------------------------------------------------------
+**<!-- -------------------------------------------------------------------------------------------------------------------------
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
                                                Chapitre CALCUL CPU/GPU/TPU
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
--------------------------------------------------------------------------------------------------------------------------- -->
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
 #HSLIDE
 
 ## Calculs par CPU / GPU / TPU
@@ -426,11 +452,12 @@ https://www.youtube.com/watch?v=-P28LKWTzrI
 
 <img src="pictures/tpu.png" width="" height="350" align="" >
 
-<!-- -------------------------------------------------------------------------------------------------------------------------
+**<!-- -------------------------------------------------------------------------------------------------------------------------
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
                                                Chapitre CALCUL D'ERREUR
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
--------------------------------------------------------------------------------------------------------------------------- -->
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
 #HSLIDE
 
 ## Calcul d'erreur
@@ -459,11 +486,8 @@ https://www.youtube.com/watch?v=-P28LKWTzrI
 
 ### Le batch
 #### Définition :
-
-- Le *batch* représente le panel d&#39;images qui serviront à entraîner notre système.  
-Dans le cas d&#39;un entraînement de modèle, le *batch* est répartie de la façon suivante :
-
-<img src="pictures/handson-deep-learning-in-python-13-638.jpg" width="" height="350" align="" >
+Le *batch* est un échantillon du panel d&#39;images qui serviront à entraîner notre système.  
+Dans le cas d&#39;un entraînement de modèle, le batch est d&#39;environ 10 à 20% du panel d&#39;images, permettant lors de l’entraînement de venir tester l&#39;efficacité du modèle.
 
 #VSLIDE
 
@@ -484,7 +508,7 @@ Dans le cas d&#39;un entraînement de modèle, le *batch* est répartie de la fa
 ### Le learning rate
 #### Définition :
 
-- Représente la taille du « pas » en avant, effectué par le système, pour atteindre le point d’apprentissage le plus efficient
+- Représente la taille du « pas » en avant effectué par le système pour atteindre le point d’apprentissage le plus efficient
 
 <img src="pictures/LR1.png" width="" height="280" align="left" >
 <img src="pictures/LR2.png" width="" height="280" align="right" >
@@ -499,7 +523,7 @@ Dans le cas d&#39;un entraînement de modèle, le *batch* est répartie de la fa
 ### Le minimum local
 #### Définition :
 
-- Le minimum local est point dans une zone où le système établit qu’il ne peut semble pense avoir obtenu la meilleure précision mais ne l’est effectivement pas sur la courbe de précision de classification.
+- Le minimum local est point dans une zone où le système établit qu’il obtient la meilleure précision mais ne l’est effectivement pas sur la courbe de précision de classification.
 
 <img src="pictures/minim-local.jpg" width="" height="350" align="" >
 
@@ -511,14 +535,11 @@ Dans le cas d&#39;un entraînement de modèle, le *batch* est répartie de la fa
 #VSLIDE
 
 ### Notion de dérivée de sigmoïde
-#### Définition d'une fonction sigmoïde :
-La fonction sigmoïde représente la fonction de répartition, qui est une mesure de **probabilité**.
-[Schéma]
-
+#### Définition :
 #VSLIDE
 
 ### Notion de dérivée de sigmoïde
-#### Définition :
+#### Définition (suite) :
 #VSLIDE
 
 ### Le vanishing gradients
@@ -531,7 +552,7 @@ La fonction sigmoïde représente la fonction de répartition, qui est une mesur
 ### Le vanishing gradients
 #### Définition :
 
-- Le vanishing gradients est une perte (ou fuite) d&#39;information sur l&#39;erreur, affectant les neurones plus profond.
+- Le vanishing gradients est une perte (ou fuite) de gradient, affectant les neurones plus profond et unités de saturations dans un réseau profond.
 
 ![TPU](pictures/long-network.png)
 
@@ -556,11 +577,12 @@ La fonction sigmoïde représente la fonction de répartition, qui est une mesur
 
 - La validation croisée (*cross-validation*) est une méthode d’estimation de fiabilité d&#39;un modèle fondé sur une technique d&#39;échantillonnage. Cela sert à comparer la pertinence d&#39;un modèle par rapport à un autre.
 
-<!-- -------------------------------------------------------------------------------------------------------------------------
+**<!-- -------------------------------------------------------------------------------------------------------------------------
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
                                                Chapitre LES CONVOLUTIONS
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
--------------------------------------------------------------------------------------------------------------------------- -->
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
 #HSLIDE
 
 ## Réseau neuronal à convolution
@@ -568,38 +590,39 @@ La fonction sigmoïde représente la fonction de répartition, qui est une mesur
 
 #VSLIDE
 
-### Les couches de traitement
+### Les convolutions
 
 ---
 #VSLIDE
 
-### Les couches de traitement
-#### Définition :
-
-- Une architecture de réseau de neurones convolutifs est formée par un empilement de couches de traitement, il en existe 5 :
- - la couche de convolution (CONV)
- - la couche de pooling (POOL)
- - la couche d&#39;activation
- - la couche « entièrement connectée » (FC)
-
-#VSLIDE
-
-### Les couches de traitement
-<img src="pictures/architecture_NN.png" width="" height="500" align="" >
-
-#VSLIDE
-
-### Les couches de convolutions
-
----
-#VSLIDE
-
-### Les couches de convolutions
+### Les convolutions
 #### Définition :
 
 - Les convolutions consistent en un empilage multicouche d&#39;algorithme, dont le but est de pré-traiter de petites quantités d&#39;informations.
 
-<img src="pictures/rgb.gif" width="" height="350" align="" >
+#VSLIDE
+
+### Les convolutions
+#### Cas concret :
+<img src="pictures/convolution.PNG" width="" height="350" align="" >
+
+#VSLIDE
+
+### Les blocs de construction
+
+---
+#VSLIDE
+
+### Les blocs de construction
+#### Définition :
+Une architecture de réseau de neurones convolutifs est formée par un empilement de couches de traitement (blocs de construction), il en existe 5 :
+
+
+- la couche de convolution (CONV)
+- la couche de pooling (POOL)
+- la couche de correction (ReLU)
+- la couche « entièrement connectée » (FC)
+- la couche de perte (LOSS)
 
 #VSLIDE
 
@@ -612,8 +635,7 @@ La fonction sigmoïde représente la fonction de répartition, qui est une mesur
 #### Définition :
 
 - Le *pooling* (« mise en commun »), est une forme de sous-échantillonnage de l&#39;image.
-
-<img src="pictures/pooling.png" width="" height="350" align="" >
+- Le *pooling* réduit la taille spatiale d&#39;une image, réduisant ainsi la quantité de paramètres et de calcul dans le réseau. Il est donc fréquent d&#39;insérer périodiquement une couche de *pooling* entre deux couches convolutives successives d&#39;une architecture de réseau de neurones convolutifs pour réduire le sur-apprentissage.
 
 #VSLIDE
 
@@ -640,13 +662,23 @@ La fonction sigmoïde représente la fonction de répartition, qui est une mesur
 
 <img src="pictures/maxPooling.png" width="" height="250" align="" >
 
-<br/><font size=4>Ici, nous avons un filtre de 2 x 2, avec un pas de 2</font>
+#VSLIDE
 
-<!-- -------------------------------------------------------------------------------------------------------------------------
+### Le max-pooling
+#### Détaillons :
+<img src="pictures/maxPooling.png" width="" height="250" align="" >
+
+
+- Ici, nous avons un filtre de 2 x 2, avec un pas de 2  
+
+<br/><font size=3>(il est possible d&#39;avoir un filtre plus important, ou encore, de ne pas avoir de couche de pooling)</font>
+
+**<!-- -------------------------------------------------------------------------------------------------------------------------
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
                                                Chapitre CONTACT & RESSOURCES
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
--------------------------------------------------------------------------------------------------------------------------- -->
+-------------------------------------------------------------------------------------------------------------------------- -->**
+
 #HSLIDE
 
 ## Contact
@@ -655,9 +687,9 @@ La fonction sigmoïde représente la fonction de répartition, qui est une mesur
 
 <img src="logo/mmtt.png" width="" height="40" align="" >
 
-<p>MomentTech SAS</p>
-<p>@: <a href="mailto:contact@mmtt.fr">
-contact@mmtt.fr</a></p>
+<p>Tom DESHAIRES - MomentTech SAS</p>
+<p>@: <a href="mailto:tom.deshaires@mmtt.fr">
+tom.deshaires@mmtt.fr</a></p>
 
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -684,9 +716,9 @@ contact@mmtt.fr</a></p>
 	</div>
 </div>
 
-<script src="assets/js/reveal/reveal.js"></script>
-<script src="assets/js/reveal/lib/head.min.js"></script>
-<script src="assets/js/jquery.js"></script>
+<script src="../../assets/js/reveal/reveal.js"></script>
+<script src="../../assets/js/reveal/lib/head.min.js"></script>
+<script src="../../assets/js/jquery.js"></script>
 <script>
 Reveal.initialize({
 	embedded: true,
@@ -708,11 +740,11 @@ Reveal.initialize({
 	// },
 
 	dependencies: [
-		{ src: "assets/js/reveal/plugin/markdown/marked.js"},
-		{ src: "assets/js/reveal/plugin/markdown/markdown.js"},
-		{ src: "assets/js/reveal/plugin/notes/notes.js"},
-		// { src: "assets/js/reveal/plugin/math/math.js", async: true }
-		{ src: "assets/js/reveal/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+		{ src: "../../assets/js/reveal/plugin/markdown/marked.js"},
+		{ src: "../../assets/js/reveal/plugin/markdown/markdown.js"},
+		{ src: "../../assets/js/reveal/plugin/notes/notes.js"},
+		// { src: "../../assets/js/reveal/plugin/math/math.js", async: true }
+		{ src: "../../assets/js/reveal/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 	]
 });
 
