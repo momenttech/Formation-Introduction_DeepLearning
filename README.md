@@ -481,7 +481,7 @@ La fonction sigmoïde représente la fonction de répartition, qui est une mesur
 
 #### Définition :
 
-  * Le vanishing gradients est une perte (ou fuite) de gradient, affectant les neurones plus profond et unités de saturations dans un réseau profond.
+  * Le vanishing gradients est une perte (ou fuite) d'information sur l'erreur, affectant les neurones plus profond.
 
 ![TPU](pictures/long-network.png)
 
@@ -513,37 +513,35 @@ La fonction sigmoïde représente la fonction de répartition, qui est une mesur
 
 <img src="chapterHeader/convolution.gif" width="" height="350" align="" >
 
-
-### Les convolutions
+### Les couches de traitement
 
 -----------------
 
-### Les convolutions
+### Les couches de traitement
+
+#### Définition :
+
+* Une architecture de réseau de neurones convolutifs est formée par un empilement de couches de traitement, il en existe 5 :
+  * la couche de convolution (CONV)
+  * la couche de pooling (POOL)
+  * la couche d'activation
+  * la couche « entièrement connectée » (FC)
+
+### Les couches de traitement
+
+<img src="pictures/architecture_NN.png" width="" height="500" align="" >
+
+### Les couches de convolutions
+
+-----------------
+
+### Les couches de convolutions
 
 #### Définition :
 
   * Les convolutions consistent en un empilage multicouche d'algorithme, dont le but est de pré-traiter de petites quantités d'informations.
 
-### Les convolutions
-
-#### Cas concret :
-
-<img src="pictures/convolution.PNG" width="" height="350" align="" >
-
-### Les blocs de construction
-
------------------
-
-### Les blocs de construction
-
-#### Définition :
-
-Une architecture de réseau de neurones convolutifs est formée par un empilement de couches de traitement (blocs de construction), il en existe 5 :
-  * la couche de convolution (CONV)
-  * la couche de pooling (POOL)
-  * la couche de correction (ReLU)
-  * la couche « entièrement connectée » (FC)
-  * la couche de perte (LOSS)
+<img src="pictures/rgb.gif" width="" height="350" align="" >
 
 ### La couche de _pooling_
 
@@ -554,7 +552,9 @@ Une architecture de réseau de neurones convolutifs est formée par un empilemen
 #### Définition :
 
   * Le _pooling_ (« mise en commun »), est une forme de sous-échantillonnage de l'image.
-  * Le _pooling_ réduit la taille spatiale d'une image, réduisant ainsi la quantité de paramètres et de calcul dans le réseau. Il est donc fréquent d'insérer périodiquement une couche de _pooling_ entre deux couches convolutives successives d'une architecture de réseau de neurones convolutifs pour réduire le sur-apprentissage.
+
+<img src="pictures/pooling.png" width="" height="350" align="" >
+
 
 ### La couche de _pooling_
 
@@ -576,15 +576,7 @@ Une architecture de réseau de neurones convolutifs est formée par un empilemen
 
 <img src="pictures/maxPooling.png" width="" height="250" align="" >
 
-### Le _max-pooling_
-
-#### Détaillons :
-
-<img src="pictures/maxPooling.png" width="" height="250" align="" >
-
-  * Ici, nous avons un filtre de 2 x 2, avec un pas de 2  
-
-<br/><font size=3>(il est possible d'avoir un filtre plus important, ou encore, de ne pas avoir de couche de pooling)</font>
+<br/><font size=4>Ici, nous avons un filtre de 2 x 2, avec un pas de 2</font>
 
 
 <!-- -------------------------------------------------------------------------------------------------------------------------
