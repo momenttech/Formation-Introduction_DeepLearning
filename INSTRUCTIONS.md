@@ -14,11 +14,17 @@ Installer le module de rendu web et de présentation en ligne [*Vegetables*](htt
 npm install vegetables -g
 ```
 
-## Utilisation
+## Utilisation en local
 
 À la racine du projet, lancer la commande suivante pour afficher le projet sous format page web :
 
 ```shell
 vegetables serve
+```
+
+## Utilisation en ligne
+
+```
+firefox https://momenttech.github.io/Formation-Introduction_DeepLearning/
 ```
 
